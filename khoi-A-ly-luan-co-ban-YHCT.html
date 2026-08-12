@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khối A — Lý luận cơ bản Y học cổ truyền · Sơ đồ hệ thống hoá</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5F2;
+  --surface:#FFFFFF;
+  --tint:#EBF0EA;
+  --tint-2:#F7F9F6;
+  --line:#DDE4DC;
+  --line-2:#C8D3C7;
+
+  --ink:#1C2A2B;
+  --ink-2:#42565A;
+  --muted:#7B8C8E;
+
+  --accent:#1D6B5A;
+  --accent-soft:#E3EFEA;
+
+  --moc:#4E8C5E;
+  --hoa:#C0473C;
+  --tho:#BE8A2A;
+  --kim:#7E8E96;
+  --thuy:#3D6E9E;
+
+  --duong:#BE8A2A;
+  --am:#3D6E9E;
+
+  --warn:#B4472F;
+  --warn-bg:#FBF0EC;
+  --warn-line:#EFD5CC;
+
+  --f-d:"Faustina",Georgia,"Times New Roman",serif;
+  --f-b:"Be Vietnam Pro",system-ui,-apple-system,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,monospace;
+
+  --w:1100px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--f-b);font-weight:300;font-size:16px;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 22px}
+p{margin:0 0 13px}
+strong,b{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+
+/* ============ HERO ============ */
+.hero{padding:70px 0 46px;background:
+  linear-gradient(180deg,#FBFCFA 0%,var(--bg) 100%);
+  border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--f-m);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 20px}
+h1{font-family:var(--f-d);font-weight:600;font-size:clamp(34px,6.2vw,58px);line-height:1.05;
+  margin:0 0 20px;letter-spacing:-.015em;max-width:16ch}
+h1 span{color:var(--accent);font-style:italic;font-weight:500}
+.lede{max-width:56ch;color:var(--ink-2);font-size:17px;margin:0 0 30px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:60;background:rgba(243,245,242,.94);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;gap:2px;overflow-x:auto;max-width:var(--w);margin:0 auto;padding:9px 16px;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav a{flex:0 0 auto;color:var(--ink-2);text-decoration:none;font-size:13px;font-weight:500;
+  padding:6px 12px;border-radius:7px;white-space:nowrap;transition:background .16s,color .16s}
+.nav a:hover,.nav a:focus-visible{background:var(--accent-soft);color:var(--accent)}
+.nav a i{font-style:normal;font-family:var(--f-m);font-size:10.5px;color:var(--muted);margin-right:6px}
+.nav a:hover i{color:var(--accent)}
+
+/* ============ SECTION ============ */
+.sec{padding:60px 0;border-bottom:1px solid var(--line)}
+.sec:nth-of-type(even){background:var(--tint-2)}
+.sec-top{margin-bottom:30px}
+.sec-no{font-family:var(--f-m);font-size:11px;letter-spacing:.16em;color:var(--accent);
+  display:block;margin-bottom:10px}
+.sec-no::after{content:"";display:inline-block;width:38px;height:1px;background:var(--line-2);
+  vertical-align:middle;margin-left:12px}
+h2{font-family:var(--f-d);font-weight:600;font-size:clamp(26px,4.4vw,38px);line-height:1.14;
+  margin:0 0 10px;letter-spacing:-.012em}
+.sec-sub{color:var(--ink-2);font-size:15.5px;margin:0;max-width:66ch}
+h3{font-family:var(--f-d);font-weight:600;font-size:21px;margin:36px 0 14px;letter-spacing:-.005em}
+h3:first-of-type{margin-top:0}
+h4{font-size:15px;font-weight:600;margin:0 0 8px}
+
+/* ============ BADGES ============ */
+.bg-tag{display:inline-block;font-family:var(--f-m);font-size:10px;letter-spacing:.04em;
+  padding:3px 8px;border-radius:5px;border:1px solid;white-space:nowrap;vertical-align:middle;line-height:1.5}
+.t-nen{color:#1D6B5A;border-color:#BCD9CE;background:#E9F4EF}
+.t-doi{color:#8A6314;border-color:#E5D3A8;background:#FBF4E4}
+.t-in{color:#A63F28;border-color:#EBCBC0;background:#FBEFEA}
+.t-vuot{color:#2F5D86;border-color:#C2D6E7;background:#EBF3F9}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(228px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.cd{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px}
+.cd .lb{font-family:var(--f-m);font-size:10px;letter-spacing:.12em;color:var(--muted);
+  text-transform:uppercase;display:block;margin-bottom:8px}
+.cd h4{font-family:var(--f-d);font-size:18px;font-weight:600}
+.cd p{font-size:14.5px;color:var(--ink-2);margin-bottom:0}
+.cd p+p{margin-top:10px}
+.cd.acc{border-left:3px solid var(--accent)}
+
+/* ============ TIER 3 tầng ============ */
+.tier{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.tier > div{padding:14px 17px;border-bottom:1px solid var(--line)}
+.tier > div:last-child{border-bottom:none;background:var(--accent-soft)}
+.tier .k{font-family:var(--f-m);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:4px}
+.tier > div:last-child .k{color:var(--accent)}
+.tier .v{font-size:14.5px;color:var(--ink-2)}
+
+/* ============ MAP overview ============ */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:8px}
+.mapcol{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;position:relative}
+.mapcol .ph{font-family:var(--f-m);font-size:10px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.mapcol h4{font-family:var(--f-d);font-size:17px;margin:6px 0 10px}
+.mapcol ol{margin:0;padding-left:0;list-style:none;font-size:13.5px;color:var(--ink-2)}
+.mapcol ol li{padding:5px 0;border-top:1px dotted var(--line-2)}
+.mapcol ol li a{color:var(--ink-2);text-decoration:none;display:flex;gap:9px}
+.mapcol ol li a:hover{color:var(--accent)}
+.mapcol ol li span{font-family:var(--f-m);font-size:11px;color:var(--muted);flex:0 0 auto}
+.mapcol p{font-size:13px;color:var(--muted);margin:10px 0 0;border-top:1px solid var(--line);padding-top:9px}
+
+/* ============ ÂM DƯƠNG bars ============ */
+.states{display:grid;gap:13px;grid-template-columns:repeat(auto-fit,minmax(212px,1fr))}
+.st{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:17px}
+.bars{display:flex;align-items:flex-end;gap:11px;height:100px;margin:8px 0 14px;position:relative}
+.bars::after{content:"";position:absolute;left:-4px;right:-4px;top:50px;border-top:1px dashed var(--line-2)}
+.bar{flex:1;border-radius:4px 4px 0 0;position:relative;z-index:1;display:flex;align-items:flex-start;
+  justify-content:center;padding-top:5px;font-family:var(--f-m);font-size:10px;color:#fff;font-weight:500}
+.bar.d{background:var(--duong)}
+.bar.a{background:var(--am)}
+.st h4{font-family:var(--f-d);font-size:17px}
+.st .vd{font-size:13.5px;color:var(--ink-2);margin:0}
+.st .vd b{display:block;font-size:14px;margin-bottom:3px}
+.st .rx{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-2)}
+.st .rx u{text-decoration:none;font-family:var(--f-m);font-size:9.5px;letter-spacing:.12em;
+  color:var(--accent);display:block;text-transform:uppercase;margin-bottom:3px}
+.baseline-note{font-family:var(--f-m);font-size:10.5px;color:var(--muted);margin:0 0 4px}
+
+/* ============ NGŨ HÀNH ============ */
+.wx{display:grid;gap:24px;grid-template-columns:1fr}
+@media(min-width:900px){.wx{grid-template-columns:1.02fr .98fr;align-items:start}}
+.modes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.modes button{font-family:var(--f-b);font-size:13px;font-weight:500;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--line);padding:7px 14px;border-radius:20px;cursor:pointer;transition:.16s}
+.modes button:hover{border-color:var(--line-2)}
+.modes button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.modes button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#pent{width:100%;height:auto;display:block}
+#pent .nd{cursor:pointer}
+#pent .nd circle{transition:stroke-width .18s,fill .18s}
+#pent .nd:focus-visible circle{stroke-width:4}
+.note{font-size:13.5px;color:var(--ink-2);background:var(--accent-soft);
+  border-radius:10px;padding:13px 15px;margin-top:10px}
+.note b{color:var(--accent)}
+.dtl{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.dtl-h{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+.dtl-h .dot{width:44px;height:44px;border-radius:12px;flex:0 0 auto;display:grid;place-items:center;
+  color:#fff;font-family:var(--f-d);font-size:16px;font-weight:600}
+.dtl-h h3{margin:0;font-size:21px}
+.dtl-h .sm{font-size:12px;color:var(--muted);font-family:var(--f-m)}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:3px 12px;font-size:13.5px;margin:0 0 15px}
+.kv dt{color:var(--muted);font-family:var(--f-m);font-size:10.5px;letter-spacing:.06em;padding-top:4px;text-transform:uppercase}
+.kv dd{margin:0;color:var(--ink-2)}
+.rl{display:grid;gap:7px;font-size:13px;margin-bottom:14px}
+.rl div{display:flex;gap:9px;align-items:baseline}
+.rl .tg{font-family:var(--f-m);font-size:9.5px;letter-spacing:.08em;padding:3px 7px;border-radius:5px;
+  background:var(--tint);color:var(--ink-2);flex:0 0 auto;min-width:66px;text-align:center}
+.clin{border-top:1px solid var(--line);padding-top:13px;font-size:13.5px;color:var(--ink-2)}
+
+/* ============ TABLE ============ */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
+  border-radius:12px;margin:14px 0;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--tint);font-weight:600;font-size:12px;letter-spacing:.03em;color:var(--ink);white-space:nowrap}
+tbody th{font-weight:500;color:var(--ink);font-size:13px;white-space:nowrap;background:var(--tint-2)}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+td small{display:block;color:var(--muted);font-size:12px;line-height:1.5;margin-top:2px}
+caption{caption-side:bottom;text-align:left;font-size:12.5px;color:var(--muted);padding:11px 13px;line-height:1.6}
+.c-moc{color:var(--moc);font-weight:500}.c-hoa{color:var(--hoa);font-weight:500}
+.c-tho{color:var(--tho);font-weight:500}.c-kim{color:var(--kim);font-weight:500}
+.c-thuy{color:var(--thuy);font-weight:500}
+
+/* ============ ORGAN accordion ============ */
+.og{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:9px;overflow:hidden}
+.og summary{list-style:none;cursor:pointer;padding:15px 18px;display:flex;align-items:center;gap:12px}
+.og summary::-webkit-details-marker{display:none}
+.og summary:hover{background:var(--tint-2)}
+.og summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.og .nm{font-family:var(--f-d);font-size:19px;font-weight:600;flex:0 0 auto}
+.og .tg2{font-size:12.5px;color:var(--muted);flex:1 1 auto;min-width:0}
+.og .cv{color:var(--muted);font-size:14px;transition:transform .2s;flex:0 0 auto}
+.og[open] .cv{transform:rotate(90deg)}
+.og[open] summary{background:var(--tint-2)}
+.og .bd{padding:17px 18px 18px;border-top:1px solid var(--line)}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 15px}
+.pill{font-size:11.5px;color:var(--ink-2);background:var(--tint);border-radius:6px;padding:4px 10px}
+.pill i{font-style:normal;color:var(--muted)}
+
+/* ============ CALLOUTS ============ */
+.rf{border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:10px;
+  padding:13px 15px;margin-top:14px;font-size:13.5px;color:#6E3325}
+.rf b{color:var(--warn);display:block;font-size:10.5px;letter-spacing:.12em;font-family:var(--f-m);
+  margin-bottom:5px;text-transform:uppercase}
+.lk{border:1px solid var(--line);background:var(--tint-2);border-radius:10px;padding:13px 15px;
+  margin-top:12px;font-size:13.5px;color:var(--ink-2)}
+.lk b{color:var(--accent);font-size:10.5px;letter-spacing:.12em;font-family:var(--f-m);
+  display:block;margin-bottom:5px;text-transform:uppercase}
+
+/* ============ KINH LẠC clock ============ */
+.clockwrap{display:grid;gap:22px;grid-template-columns:1fr}
+@media(min-width:900px){.clockwrap{grid-template-columns:1fr 1fr;align-items:center}}
+#clock{width:100%;height:auto;display:block;max-width:520px;margin:0 auto}
+.lgd{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);margin-top:10px;justify-content:center}
+.lgd span{display:flex;align-items:center;gap:7px}
+.lgd i{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+/* ============ FLOW chain ============ */
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 4px}
+.chain b{background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  padding:7px 12px;font-size:13px;font-weight:500}
+.chain u{text-decoration:none;color:var(--muted);font-size:15px}
+
+/* ============ FOOTER ============ */
+.ft{padding:52px 0 80px;color:var(--ink-2);font-size:14px;background:var(--tint-2)}
+.lg{display:grid;gap:10px;margin:16px 0 30px}
+.lg div{display:flex;gap:12px;align-items:flex-start}
+.lg p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.chk{list-style:none;padding:0;margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.chk li{padding:11px 16px 11px 42px;border-bottom:1px solid var(--line);position:relative;font-size:13.5px}
+.chk li::before{content:"";position:absolute;left:17px;top:15px;width:12px;height:12px;
+  border:1.5px solid var(--line-2);border-radius:3px}
+.chk li:last-child{border-bottom:none}
+.fine{margin-top:26px;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Khối A · Chương trình năm thứ nhất</p>
+    <h1>Lý luận cơ bản <span>Y học cổ truyền</span></h1>
+    <p class="lede">Toàn khối gói trong một trang. Mười hai bài không rời nhau: ba bài đầu dựng khung tư duy, bốn bài giữa lắp vật chất và đường dẫn vào khung, hai bài tiếp mô tả khung ấy hỏng thế nào, ba bài cuối dạy cách đọc ra chỗ hỏng và sửa. Đọc theo chuỗi, đừng đọc rời.</p>
+    <div class="hero-tags">
+      <span class="bg-tag t-nen">Nền tảng</span>
+      <span class="bg-tag t-doi">Cần đối chiếu giáo trình</span>
+      <span class="bg-tag t-in">Cần tra cứu bản in</span>
+      <span class="bg-tag t-vuot">Vượt giáo trình năm nhất</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#bando"><i>00</i>Bản đồ khối</a>
+    <a href="#dacdiem"><i>01</i>Đặc điểm YHCT</a>
+    <a href="#amduong"><i>02</i>Âm Dương</a>
+    <a href="#nguhanh"><i>03</i>Ngũ Hành</a>
+    <a href="#tang"><i>04</i>Ngũ tạng</a>
+    <a href="#phu"><i>05</i>Lục phủ</a>
+    <a href="#khihuyet"><i>06</i>Khí Huyết Tân dịch</a>
+    <a href="#kinhlac"><i>07</i>Kinh lạc</a>
+    <a href="#nguyennhan"><i>08</i>Nguyên nhân gây bệnh</a>
+    <a href="#benhco"><i>09</i>Cơ chế bệnh sinh</a>
+    <a href="#tuchan"><i>10</i>Tứ chẩn</a>
+    <a href="#batcuong"><i>11</i>Bát cương</a>
+    <a href="#dieutri"><i>12</i>Nguyên tắc điều trị</a>
+    <a href="#denham"><i>+</i>Chỗ dễ nhầm</a>
+  </div>
+</nav>
+
+<!-- ══ 00 BẢN ĐỒ ══ -->
+<section class="sec" id="bando">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bản đồ khối</span>
+      <h2>Mười hai bài chia thành bốn chặng</h2>
+      <p class="sec-sub">Mỗi chặng trả lời một câu hỏi khác nhau. Biết mình đang ở chặng nào thì biết bài đang học dùng để làm gì.</p>
+    </div>
+    <div class="map">
+      <div class="mapcol">
+        <span class="ph">Chặng I</span>
+        <h4>Khung tư duy</h4>
+        <ol>
+          <li><a href="#dacdiem"><span>01</span>Đặc điểm và phương pháp luận</a></li>
+          <li><a href="#amduong"><span>02</span>Học thuyết Âm Dương</a></li>
+          <li><a href="#nguhanh"><span>03</span>Học thuyết Ngũ Hành</a></li>
+        </ol>
+        <p>Trả lời: YHCT nhìn cơ thể bằng công cụ tư duy nào?</p>
+      </div>
+      <div class="mapcol">
+        <span class="ph">Chặng II</span>
+        <h4>Vật chất và đường dẫn</h4>
+        <ol>
+          <li><a href="#tang"><span>04</span>Tạng tượng — ngũ tạng</a></li>
+          <li><a href="#phu"><span>05</span>Lục phủ và phủ kỳ hằng</a></li>
+          <li><a href="#khihuyet"><span>06</span>Khí, Huyết, Tân dịch, Tinh, Thần</a></li>
+          <li><a href="#kinhlac"><span>07</span>Hệ kinh lạc</a></li>
+        </ol>
+        <p>Trả lời: cơ thể gồm những gì và chúng nối với nhau ra sao?</p>
+      </div>
+      <div class="mapcol">
+        <span class="ph">Chặng III</span>
+        <h4>Bệnh lý</h4>
+        <ol>
+          <li><a href="#nguyennhan"><span>08</span>Nguyên nhân gây bệnh</a></li>
+          <li><a href="#benhco"><span>09</span>Cơ chế bệnh sinh</a></li>
+        </ol>
+        <p>Trả lời: cái gì làm hỏng, và hỏng theo con đường nào?</p>
+      </div>
+      <div class="mapcol">
+        <span class="ph">Chặng IV</span>
+        <h4>Chẩn và trị</h4>
+        <ol>
+          <li><a href="#tuchan"><span>10</span>Tứ chẩn</a></li>
+          <li><a href="#batcuong"><span>11</span>Bát cương và các phép biện chứng</a></li>
+          <li><a href="#dieutri"><span>12</span>Nguyên tắc và phương pháp điều trị</a></li>
+        </ol>
+        <p>Trả lời: làm sao đọc ra chỗ hỏng, và sửa theo hướng nào?</p>
+      </div>
+    </div>
+    <div class="note" style="margin-top:18px">
+      <b>Sợi chỉ xuyên suốt.</b> Mọi bài đều đọc được bằng ba tầng: <strong>nó là gì → nó gây bệnh theo cơ chế nào → cơ chế đó dẫn tới pháp trị nào</strong>. Và một mẹo giải mã dùng được cả khối: <strong>pháp trị là nghịch đảo của cơ chế bệnh</strong>. Nắm cơ chế thì không phải học thuộc pháp.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 01 ĐẶC ĐIỂM ══ -->
+<section class="sec" id="dacdiem">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 01</span>
+      <h2>Đặc điểm và phương pháp luận</h2>
+      <p class="sec-sub">Bài này thường bị đọc lướt vì không có gì để thuộc lòng. Nhưng nó quyết định cách bạn đọc mười một bài còn lại. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+    <div class="grid g2">
+      <div class="cd acc">
+        <span class="lb">Đặc điểm thứ nhất</span>
+        <h4>Quan niệm chỉnh thể</h4>
+        <p><strong>Trong cơ thể:</strong> tạng phủ, kinh lạc, ngũ quan, cửu khiếu, tứ chi là một thể thống nhất — bệnh ở một nơi biểu hiện ra nơi khác. Mắt khô truy về Can, tai ù truy về Thận.</p>
+        <p><strong>Người với môi trường:</strong> khí hậu, mùa, vùng miền, giờ giấc, ăn uống, tâm lý xã hội đều là yếu tố bệnh lý thật, không phải nền phụ.</p>
+        <p><em>Hệ quả thực hành:</em> không có triệu chứng đơn lẻ. Mọi triệu chứng phải đặt lại vào chỉnh thể mới có nghĩa.</p>
+      </div>
+      <div class="cd acc">
+        <span class="lb">Đặc điểm thứ hai</span>
+        <h4>Biện chứng luận trị</h4>
+        <p><strong>Chứng</strong> là bản tóm tắt trạng thái bệnh tại một thời điểm — gồm nguyên nhân, vị trí, tính chất, và tương quan chính tà. <strong>Bệnh</strong> là toàn bộ quá trình. Hai thứ này khác nhau.</p>
+        <p>Từ đó ra hai nguyên tắc: <strong>đồng bệnh dị trị</strong> (cùng một bệnh, chứng khác nhau thì trị khác nhau) và <strong>dị bệnh đồng trị</strong> (bệnh khác nhau nhưng cùng một chứng thì trị giống nhau).</p>
+        <p><em>Hệ quả thực hành:</em> chữa theo chứng, không chữa theo tên bệnh.</p>
+      </div>
+    </div>
+    <div class="rf">
+      <b>Ranh giới phải giữ ngay từ bài đầu</b>
+      Biện chứng luận trị là cách <em>phân loại trạng thái</em>, không phải cách <em>loại trừ nguyên nhân nguy hiểm</em>. Một chứng được biện đúng vẫn có thể nằm trên một bệnh thực thể cần chuyển tuyến. Nguyên tắc này sẽ được nhắc lại ở mọi chỗ có mặt bệnh nguy hiểm trong trang này — đó là chủ ý, không phải lặp thừa.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 ÂM DƯƠNG ══ -->
+<section class="sec" id="amduong">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 02</span>
+      <h2>Học thuyết Âm Dương</h2>
+      <p class="sec-sub">Không phải hai chất, mà là hai <strong>thuộc tính đối lập</strong> của cùng một sự vật, luôn xét trong tương quan. Rời tương quan thì âm dương mất nghĩa. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <h3>Ba đặc tính nền — hay bị bỏ qua</h3>
+    <div class="grid g3">
+      <div class="cd">
+        <h4>Tính phổ biến</h4>
+        <p>Mọi sự vật đều phân được âm dương. Không có ngoại lệ trong phạm vi lý luận YHCT.</p>
+      </div>
+      <div class="cd">
+        <h4>Tính tương đối</h4>
+        <p>Ngực so với lưng là âm, so với bụng lại là dương. <strong>Luôn phải hỏi: so với cái gì?</strong> Đây là chỗ sinh viên hay sai nhất.</p>
+      </div>
+      <div class="cd">
+        <h4>Vô hạn khả phân</h4>
+        <p>Trong âm có âm dương, trong dương có âm dương. Ban ngày là dương, nhưng sáng là dương trong dương, chiều là âm trong dương.</p>
+      </div>
+    </div>
+
+    <h3>Bốn quy luật vận động</h3>
+    <div class="grid g2">
+      <div class="cd">
+        <span class="lb">Quy luật 01</span>
+        <h4>Đối lập chế ước</h4>
+        <p>Hai mặt vừa mâu thuẫn vừa <strong>kiềm chế lẫn nhau</strong> để giữ cân bằng động.</p>
+        <p><em>Suy ra:</em> mọi chứng thực là chế ước hỏng theo hướng thừa; mọi chứng hư là chế ước hỏng theo hướng thiếu.</p>
+      </div>
+      <div class="cd">
+        <span class="lb">Quy luật 02</span>
+        <h4>Hỗ căn hỗ dụng</h4>
+        <p>Mỗi bên lấy bên kia làm gốc tồn tại. <strong>Âm một mình không sinh, dương một mình không trưởng.</strong></p>
+        <p><em>Suy ra:</em> nền lý luận của <strong>âm dương lưỡng hư</strong>, và của pháp bổ dương phải kèm thuốc bổ âm, bổ âm phải kèm chút dương. <span class="bg-tag t-doi">Đối chiếu</span></p>
+      </div>
+      <div class="cd">
+        <span class="lb">Quy luật 03</span>
+        <h4>Tiêu trưởng bình hành</h4>
+        <p>Bên này bớt thì bên kia thêm, nhưng dao động trong biên độ. <strong>Cân bằng là động, không phải đứng yên.</strong></p>
+        <p><em>Suy ra:</em> đọc được nhịp ngày đêm và nhịp lên xuống của triệu chứng — sốt về chiều, đau tăng nửa đêm, hen nặng lúc gần sáng.</p>
+      </div>
+      <div class="cd">
+        <span class="lb">Quy luật 04</span>
+        <h4>Chuyển hoá</h4>
+        <p>Tích luỹ tới cực điểm thì chuyển thành mặt đối lập: <strong>hàn cực sinh nhiệt, nhiệt cực sinh hàn</strong>.</p>
+        <p><em>Suy ra:</em> nền của <strong>chân hàn giả nhiệt</strong> và <strong>chân nhiệt giả hàn</strong> — hai tình huống dễ điều trị ngược nhất trên lâm sàng.</p>
+      </div>
+    </div>
+
+    <h3>Bốn trạng thái mất cân bằng — nhìn sơ đồ ra pháp trị</h3>
+    <p class="baseline-note">Cột vàng: dương · Cột xanh: âm · Nét đứt: mức bình thường</p>
+    <div class="states">
+      <div class="st">
+        <div class="bars"><div class="bar d" style="height:86px">dương</div><div class="bar a" style="height:50px">âm</div></div>
+        <h4>Dương thắng</h4>
+        <p class="vd"><b style="color:var(--hoa)">Thực nhiệt</b>Dương thiên thắng nên hoá nhiệt. Kéo dài thì hao âm — dương thắng thì âm bệnh.</p>
+        <p class="rx"><u>Pháp trị</u>Tả cái dư — thanh nhiệt tả hoả. Nhiệt thì dùng thuốc hàn.</p>
+      </div>
+      <div class="st">
+        <div class="bars"><div class="bar d" style="height:50px">dương</div><div class="bar a" style="height:86px">âm</div></div>
+        <h4>Âm thắng</h4>
+        <p class="vd"><b style="color:var(--thuy)">Thực hàn</b>Âm thiên thắng nên sinh hàn. Kéo dài thì tổn dương — âm thắng thì dương bệnh.</p>
+        <p class="rx"><u>Pháp trị</u>Tả cái dư — ôn tán hàn tà. Hàn thì dùng thuốc nhiệt.</p>
+      </div>
+      <div class="st">
+        <div class="bars"><div class="bar d" style="height:26px">dương</div><div class="bar a" style="height:50px">âm</div></div>
+        <h4>Dương hư</h4>
+        <p class="vd"><b style="color:var(--thuy)">Hư hàn</b>Dương không đủ sưởi ấm, âm chỉ trội <em>tương đối</em>. Hàn ở đây do <strong>thiếu ấm</strong>, không do tà hàn.</p>
+        <p class="rx"><u>Pháp trị</u>Bổ dương — làm mạnh nguồn lửa để tiêu cái âm thừa. <span class="bg-tag t-in">Nguyên văn tra bản in</span></p>
+      </div>
+      <div class="st">
+        <div class="bars"><div class="bar d" style="height:50px">dương</div><div class="bar a" style="height:26px">âm</div></div>
+        <h4>Âm hư</h4>
+        <p class="vd"><b style="color:var(--hoa)">Hư nhiệt</b>Âm không đủ chế ước dương, sinh <strong>nội nhiệt</strong> — không phải nhiệt tà từ ngoài vào.</p>
+        <p class="rx"><u>Pháp trị</u>Tư âm — làm mạnh nguồn nước để chế cái dương sáng. <span class="bg-tag t-in">Nguyên văn tra bản in</span></p>
+      </div>
+    </div>
+    <div class="note" style="margin-top:16px">
+      <b>Điểm chốt.</b> Hai trạng thái đầu là <strong>thịnh tuyệt đối</strong> — cột vượt vạch → pháp là <strong>tả</strong>. Hai trạng thái sau là <strong>thịnh tương đối</strong> vì cột đối diện tụt xuống → pháp là <strong>bổ</strong>. Cùng có biểu hiện nóng, nhưng một bên tả hoả, một bên tư âm. Chọn sai là làm bệnh nặng thêm.
+    </div>
+
+    <h3>Bốn cửa ứng dụng</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Ứng dụng vào</th><th>Nội dung</th></tr></thead>
+        <tbody>
+          <tr><th>Cấu tạo và sinh lý</th><td>Trên là dương, dưới là âm · lưng dương, bụng âm · ngoài dương, trong âm · lục phủ dương, ngũ tạng âm · khí dương, huyết và tân dịch âm · công năng dương, vật chất âm.</td></tr>
+          <tr><th>Chẩn đoán</th><td>Sắc tươi sáng, tiếng to, thở thô, mạch phù sác hữu lực thuộc dương. Sắc tối trệ, tiếng nhỏ, ít nói, mạch trầm trì vô lực thuộc âm.<small>Bát cương lấy âm dương làm tổng cương chính là ứng dụng này.</small></td></tr>
+          <tr><th>Trị liệu</th><td>Nguyên tắc gốc: <strong>điều chỉnh âm dương, bù chỗ thiếu, bớt chỗ thừa, lập lại cân bằng</strong>. Thực thì tả, hư thì bổ.</td></tr>
+          <tr><th>Dược tính</th><td>Tứ khí: hàn và lương thuộc âm; ôn và nhiệt thuộc dương. Ngũ vị: cay ngọt và nhạt thuộc dương; chua đắng mặn thuộc âm. Xu hướng: thăng và phù thuộc dương; giáng và trầm thuộc âm.<small><span class="bg-tag t-doi">Cách xếp vị nhạt khác nhau giữa các sách — đối chiếu chương Dược tính</span></small></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 NGŨ HÀNH ══ -->
+<section class="sec" id="nguhanh">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 03</span>
+      <h2>Học thuyết Ngũ Hành</h2>
+      <p class="sec-sub">Âm dương chia đôi; ngũ hành chia năm rồi <strong>nối chúng thành mạng</strong>. Giá trị thật không nằm ở việc xếp loại mà ở chỗ nó cho phép truy đường bệnh truyền từ tạng này sang tạng khác. Chọn kiểu quan hệ rồi chạm vào một hành. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <div class="wx">
+      <div>
+        <div class="modes" role="group" aria-label="Chọn kiểu quan hệ">
+          <button data-mode="sinh" aria-pressed="true">Tương sinh</button>
+          <button data-mode="khac" aria-pressed="false">Tương khắc</button>
+          <button data-mode="thua" aria-pressed="false">Tương thừa</button>
+          <button data-mode="vu" aria-pressed="false">Tương vũ</button>
+        </div>
+        <svg id="pent" viewBox="0 0 500 500" role="img" aria-label="Sơ đồ ngũ hành">
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+          <g id="edges"></g><g id="nodes"></g>
+        </svg>
+        <div class="note" id="modeNote"></div>
+      </div>
+      <div class="dtl" id="detail"></div>
+    </div>
+
+    <h3>Hai chiều bệnh truyền — phần thường bị học thiếu</h3>
+    <div class="grid g2">
+      <div class="cd">
+        <span class="lb">Truyền theo tương sinh</span>
+        <h4>Mẹ bệnh liên luỵ con · Con bệnh phạm mẹ</h4>
+        <p><strong>Mẹ bệnh liên luỵ con:</strong> Thận âm hư lâu không nuôi được Can, sinh Can âm hư rồi Can dương thượng cang. Đi xuôi chiều tương sinh.</p>
+        <p><strong>Con bệnh phạm mẹ:</strong> Tâm hoả quá vượng kéo theo Can hoả bốc — còn gọi là con ăn khí của mẹ. Đi ngược chiều tương sinh.</p>
+      </div>
+      <div class="cd">
+        <span class="lb">Truyền theo tương khắc</span>
+        <h4>Tương thừa · Tương vũ</h4>
+        <p><strong>Tương thừa</strong> đi cùng chiều tương khắc, do bên khắc quá mạnh hoặc bên bị khắc quá yếu. Ví dụ kinh điển: Can khí vượng thừa Tỳ — cứ căng thẳng là đau bụng đi ngoài.</p>
+        <p><strong>Tương vũ</strong> đi ngược chiều tương khắc. Ví dụ: Can hoả quá thịnh vũ ngược lên Phế — giận dữ thì ho, tức sườn, có thể khạc ra máu.</p>
+      </div>
+    </div>
+
+    <h3>Từ quan hệ ra pháp trị</h3>
+    <div class="grid g2">
+      <div class="cd acc">
+        <span class="lb">Dựa trên tương sinh</span>
+        <h4>Hư thì bổ mẹ, thực thì tả con</h4>
+        <p><strong>Bổ thuỷ nuôi mộc</strong> — bổ Thận âm để dưỡng Can, dùng khi Can dương thượng cang gốc ở Thận âm hư.<br>
+        <strong>Bồi thổ sinh kim</strong> — kiện Tỳ để bổ Phế, dùng khi ho lâu ngày đờm nhiều kèm mệt mỏi chán ăn.<br>
+        <strong>Ích hoả bổ thổ</strong> — ôn Thận dương để kiện Tỳ, dùng khi tiêu chảy lúc gần sáng.<br>
+        <strong>Kim thuỷ tương sinh</strong> — tư dưỡng Phế và Thận cùng lúc.</p>
+      </div>
+      <div class="cd acc">
+        <span class="lb">Dựa trên tương khắc</span>
+        <h4>Ức cái khắc quá, phù cái bị khắc</h4>
+        <p><strong>Ức mộc phù thổ</strong> — sơ Can kiện Tỳ, dùng khi Can khí phạm Tỳ.<br>
+        <strong>Bồi thổ chế thuỷ</strong> — kiện Tỳ để trị phù thũng do thuỷ thấp tràn lan.<br>
+        <strong>Tá kim bình mộc</strong> — làm Phế khí giáng xuống để hạ Can dương.<br>
+        <strong>Tả nam bổ bắc</strong> — tả Tâm hoả, bổ Thận thuỷ, dùng trong Tâm Thận bất giao.</p>
+        <p><span class="bg-tag t-doi">Số lượng và cách gọi tên các pháp này khác nhau giữa giáo trình Việt Nam và tài liệu Trung y — đối chiếu bản trường bạn học</span></p>
+      </div>
+    </div>
+
+    <div class="lk">
+      <b>Một ứng dụng ít được nhắc</b>
+      Ngũ hành còn dùng để điều chỉnh tình chí bằng chính tình chí: mừng chế giận, giận chế lo nghĩ, lo nghĩ chế sợ, sợ chế mừng, buồn chế giận. Đây là cơ sở lý luận của liệu pháp tâm lý trong YHCT, không phải chi tiết trang trí. <span class="bg-tag t-doi">Thứ tự cặp chế ước cần đối chiếu giáo trình</span>
+    </div>
+
+    <div class="rf">
+      <b>Giới hạn của mô hình</b>
+      Ngũ hành là <strong>khung suy luận</strong>, không phải quy luật cơ học. Trên lâm sàng vẫn có bệnh không truyền theo sinh khắc. Dùng sơ đồ để gợi ý hướng truy rồi kiểm chứng bằng tứ chẩn — đừng ép ca bệnh vào sơ đồ.
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUY LOẠI ══ -->
+<section class="sec" id="quyloai">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 03 · phụ lục</span>
+      <h2>Bảng quy loại ngũ hành</h2>
+      <p class="sec-sub">Bộ nhớ trung tâm của cả năm nhất. Học theo <strong>cột dọc</strong> — một hành kéo theo cả chuỗi — chứ đừng học theo hàng ngang rời rạc.</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Quy loại</th><th class="c-moc">Mộc</th><th class="c-hoa">Hoả</th><th class="c-tho">Thổ</th><th class="c-kim">Kim</th><th class="c-thuy">Thuỷ</th></tr></thead>
+        <tbody>
+          <tr><th>Ngũ tạng</th><td class="c-moc">Can</td><td class="c-hoa">Tâm</td><td class="c-tho">Tỳ</td><td class="c-kim">Phế</td><td class="c-thuy">Thận</td></tr>
+          <tr><th>Lục phủ</th><td>Đởm</td><td>Tiểu trường</td><td>Vị</td><td>Đại trường</td><td>Bàng quang</td></tr>
+          <tr><th>Ngũ quan</th><td>Mắt</td><td>Lưỡi</td><td>Miệng</td><td>Mũi</td><td>Tai và nhị âm</td></tr>
+          <tr><th>Ngũ thể</th><td>Cân</td><td>Mạch</td><td>Cơ nhục</td><td>Bì mao</td><td>Cốt và tuỷ</td></tr>
+          <tr><th>Ngũ hoa</th><td>Móng</td><td>Sắc mặt</td><td>Môi</td><td>Lông</td><td>Tóc</td></tr>
+          <tr><th>Ngũ chí</th><td>Giận</td><td>Mừng</td><td>Lo nghĩ</td><td>Buồn và ưu tư</td><td>Sợ</td></tr>
+          <tr><th>Ngũ dịch</th><td>Nước mắt</td><td>Mồ hôi</td><td>Nước dãi</td><td>Nước mũi</td><td>Nước bọt</td></tr>
+          <tr><th>Ngũ sắc</th><td class="c-moc">Xanh</td><td class="c-hoa">Đỏ</td><td class="c-tho">Vàng</td><td class="c-kim">Trắng</td><td class="c-thuy">Đen</td></tr>
+          <tr><th>Ngũ vị</th><td>Chua</td><td>Đắng</td><td>Ngọt</td><td>Cay</td><td>Mặn</td></tr>
+          <tr><th>Ngũ khí</th><td>Phong</td><td>Thử và nhiệt</td><td>Thấp</td><td>Táo</td><td>Hàn</td></tr>
+          <tr><th>Ngũ mùa</th><td>Xuân</td><td>Hạ</td><td>Trưởng hạ</td><td>Thu</td><td>Đông</td></tr>
+          <tr><th>Ngũ phương</th><td>Đông</td><td>Nam</td><td>Trung ương</td><td>Tây</td><td>Bắc</td></tr>
+        </tbody>
+        <caption>Hàng ngũ dịch, ngũ hoa và cách xếp mùa trưởng hạ có sai khác giữa giáo trình Việt Nam và tài liệu Trung y. Kiểm lại ở chương Ngũ hành, mục bảng quy loại. <span class="bg-tag t-doi">Cần đối chiếu giáo trình</span></caption>
+      </table>
+    </div>
+    <div class="lk">
+      <b>Cách dùng bảng khi chẩn</b>
+      Đi ngược từ dấu hiệu về tạng: mặt xanh, gân co rút, hay cáu, mắt khô — nghĩ tới Can. Nhưng đây là <strong>hướng nghi ngờ</strong>, phải xác nhận bằng đủ tứ chẩn, không phải kết luận. Chiều ngược lại — biết tạng bệnh thì tiên lượng dấu hiệu sẽ nổi lên ở đâu — cũng dùng bảng này.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 NGŨ TẠNG ══ -->
+<section class="sec" id="tang">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 04</span>
+      <h2>Tạng tượng — Ngũ tạng</h2>
+      <p class="sec-sub">Tạng là cái ẩn bên trong, tượng là cái hiện ra ngoài. Đây là học thuyết về <strong>chức năng quan sát được</strong>, không phải về giải phẫu — tạng Tâm của YHCT không trùng quả tim của y học hiện đại. Mỗi tạng đọc theo ba tầng.</p>
+    </div>
+
+    <details class="og" open>
+      <summary><span class="cv">›</span><span class="nm" style="color:var(--hoa)">Tâm</span><span class="tg2">Hoả · vua của các tạng · biểu lý với Tiểu trường</span></summary>
+      <div class="bd">
+        <div class="pills"><span class="pill"><i>khai khiếu</i> lưỡi</span><span class="pill"><i>chủ thể</i> mạch</span><span class="pill"><i>vinh nhuận</i> sắc mặt</span><span class="pill"><i>dịch</i> mồ hôi</span><span class="pill"><i>chí</i> mừng</span></div>
+        <div class="tier">
+          <div><span class="k">Là gì</span><span class="v"><strong>Chủ huyết mạch</strong> — thúc đẩy huyết vận hành trong lòng mạch. <strong>Chủ thần minh</strong> — chủ ý thức, tư duy, giấc ngủ. Còn có Tâm bào lạc bao bọc bên ngoài, thay Tâm chịu tà.</span></div>
+          <div><span class="k">Cơ chế bệnh lý</span><span class="v">Tâm khí và dương hư thì lực đẩy huyết yếu — hồi hộp, đoản hơi, sắc mặt trắng, tự ra mồ hôi. Tâm huyết và âm hư thì thần không được nuôi — mất ngủ, hay quên, nóng lòng bàn tay chân. Tâm hoả cang thịnh thì nhiễu thần và bốc lên miệng lưỡi — loét miệng, tâm phiền, tiểu đỏ rít do truyền xuống Tiểu trường.</span></div>
+          <div><span class="k">Pháp trị</span><span class="v">Bổ ích tâm khí · ôn thông tâm dương · dưỡng huyết an thần · tư âm giáng hoả · thanh tâm tả hoả.</span></div>
+        </div>
+        <div class="lk"><b>Liên hệ ngang</b>Vị thuốc quy kinh Tâm: Toan táo nhân, Bá tử nhân, Viễn chí, Đan sâm, Hoàng liên. Huyệt hay dùng: Thần môn (HT7), Nội quan (PC6), Cự khuyết (CV14). <span class="bg-tag t-in">Liều lượng, tên khoa học và vị trí giải phẫu huyệt phải tra bản in</span></div>
+        <div class="rf"><b>Cờ đỏ</b>Hồi hộp kèm đau ngực lan tay trái, vã mồ hôi lạnh, khó thở — nghĩ hội chứng vành cấp trước khi nghĩ Tâm dương hư. Chuyển cấp cứu.</div>
+      </div>
+    </details>
+
+    <details class="og">
+      <summary><span class="cv">›</span><span class="nm" style="color:var(--moc)">Can</span><span class="tg2">Mộc · tướng quân · biểu lý với Đởm</span></summary>
+      <div class="bd">
+        <div class="pills"><span class="pill"><i>khai khiếu</i> mắt</span><span class="pill"><i>chủ thể</i> cân</span><span class="pill"><i>vinh nhuận</i> móng</span><span class="pill"><i>dịch</i> nước mắt</span><span class="pill"><i>chí</i> giận</span></div>
+        <div class="tier">
+          <div><span class="k">Là gì</span><span class="v"><strong>Chủ sơ tiết</strong> — điều đạt khí cơ toàn thân, chi phối tiêu hoá, tình chí, huyết hành, bài tiết mật. <strong>Tàng huyết</strong> — chứa và điều tiết lượng huyết theo nhu cầu vận động hay nghỉ ngơi.</span></div>
+          <div><span class="k">Cơ chế bệnh lý</span><span class="v">Sơ tiết hỏng theo hai chiều. Không đủ thì khí uất kết — tức sườn, thở dài, kinh nguyệt thất thường. Quá mức thì khí thăng phát mạnh rồi hoá hoả — đau đầu căng, mắt đỏ, cáu gắt. Chuỗi tiến triển cần thuộc: <strong>uất → hoá hoả → thiêu đốt âm huyết → âm hư → dương không được chế nên thượng cang → cực điểm sinh phong nội động</strong>. Ngang ra thì Can khí phạm Tỳ Vị.</span></div>
+          <div><span class="k">Pháp trị</span><span class="v">Sơ Can lý khí · thanh Can tả hoả · tư dưỡng Can âm · bình Can tiềm dương · trấn Can tức phong. Mỗi bậc trong chuỗi trên một pháp.</span></div>
+        </div>
+        <div class="lk"><b>Liên hệ ngang</b>Vị thuốc quy kinh Can: Sài hồ, Hương phụ, Bạch thược, Đương quy, Câu đằng, Thiên ma, Long đởm thảo. Huyệt: Thái xung (LR3), Hành gian (LR2), Kỳ môn (LR14), Phong trì (GB20). <span class="bg-tag t-in">Tra bản in</span></div>
+        <div class="rf"><b>Cờ đỏ</b>Đau đầu dữ dội đột ngột, nôn vọt, yếu nửa người, méo miệng, nói khó — là đột quỵ cho tới khi loại trừ được, không phải Can dương thượng cang để bình Can. Chuyển ngay.</div>
+      </div>
+    </details>
+
+    <details class="og">
+      <summary><span class="cv">›</span><span class="nm" style="color:var(--tho)">Tỳ</span><span class="tg2">Thổ · gốc hậu thiên · biểu lý với Vị</span></summary>
+      <div class="bd">
+        <div class="pills"><span class="pill"><i>khai khiếu</i> miệng</span><span class="pill"><i>chủ thể</i> cơ nhục và tứ chi</span><span class="pill"><i>vinh nhuận</i> môi</span><span class="pill"><i>dịch</i> nước dãi</span><span class="pill"><i>chí</i> lo nghĩ</span></div>
+        <div class="tier">
+          <div><span class="k">Là gì</span><span class="v"><strong>Chủ vận hoá</strong> — chuyển thuỷ cốc thành tinh vi và vận chuyển thuỷ thấp. <strong>Chủ thăng thanh</strong> — đưa tinh vi lên trên, giữ tạng phủ đúng vị trí. <strong>Thống huyết</strong> — giữ huyết trong lòng mạch. Cặp với Vị theo bốn vế đối: <strong>Tỳ chủ thăng, Vị chủ giáng; Tỳ ưa ráo ghét ẩm, Vị ưa ẩm ghét ráo.</strong></span></div>
+          <div><span class="k">Cơ chế bệnh lý</span><span class="v">Vận hoá kém thì nguồn sinh khí huyết cạn — mệt, chán ăn, đầy bụng sau ăn, phân nát, gầy. Thuỷ thấp không vận thì đọng thành đàm thấp — nặng nề, phù, đờm nhiều; nên nói Tỳ là nguồn sinh đàm còn Phế là nơi chứa đàm. Thăng thanh hỏng thì trung khí hạ hãm — sa nội tạng, tiêu chảy kéo dài. Không thống được huyết thì xuất huyết, đặc điểm là <strong>máu màu nhạt và kèm đủ dấu hiệu hư</strong>.</span></div>
+          <div><span class="k">Pháp trị</span><span class="v">Kiện Tỳ ích khí · táo thấp kiện Tỳ · thăng đề trung khí · kiện Tỳ nhiếp huyết · ôn trung kiện Tỳ khi kèm dương hư.</span></div>
+        </div>
+        <div class="lk"><b>Liên hệ ngang</b>Vị thuốc quy kinh Tỳ: Bạch truật, Hoàng kỳ, Đảng sâm, Phục linh, Sơn dược, Trần bì. Huyệt: Túc tam lý (ST36), Tam âm giao (SP6), Tỳ du (BL20), Trung quản (CV12). <span class="bg-tag t-in">Tra bản in</span></div>
+        <div class="rf"><b>Cờ đỏ</b>Sụt cân nhanh không giải thích được, đau thượng vị dai dẳng ở người trên bốn mươi tuổi, nôn ra máu hoặc phân đen — phải loại trừ ung thư dạ dày và xuất huyết tiêu hoá trước, không dừng ở Tỳ Vị hư nhược.</div>
+      </div>
+    </details>
+
+    <details class="og">
+      <summary><span class="cv">›</span><span class="nm" style="color:var(--kim)">Phế</span><span class="tg2">Kim · tướng phó · biểu lý với Đại trường</span></summary>
+      <div class="bd">
+        <div class="pills"><span class="pill"><i>khai khiếu</i> mũi</span><span class="pill"><i>chủ thể</i> bì mao</span><span class="pill"><i>vinh nhuận</i> lông</span><span class="pill"><i>dịch</i> nước mũi</span><span class="pill"><i>chí</i> buồn và ưu tư</span></div>
+        <div class="tier">
+          <div><span class="k">Là gì</span><span class="v"><strong>Chủ khí và hô hấp</strong>. <strong>Chủ tuyên phát và túc giáng</strong> — phát tán vệ khí cùng tân dịch ra bì mao, đồng thời đưa khí đi xuống. <strong>Thông điều thuỷ đạo</strong> nên gọi là thượng nguồn của nước. <strong>Triều bách mạch</strong> — trợ Tâm hành huyết. Là tạng non nớt, ở vị trí cao nhất nên ngoại tà phạm trước.</span></div>
+          <div><span class="k">Cơ chế bệnh lý</span><span class="v">Tuyên phát hỏng thì vệ khí không ra được — sợ lạnh, tắc mũi, không ra mồ hôi. Túc giáng hỏng thì khí nghịch lên — ho, suyễn, tức ngực. Thuỷ đạo không thông thì phù xuất hiện sớm ở mặt và nửa người trên. Phế khí hư — đoản hơi, tiếng nhỏ, tự hãn, dễ cảm. Phế âm hư — ho khan ít đờm, họng khô, khàn tiếng, có thể lẫn máu.</span></div>
+          <div><span class="k">Pháp trị</span><span class="v">Tuyên Phế tán tà · túc giáng Phế khí để chỉ khái bình suyễn · bổ ích Phế khí · tư dưỡng Phế âm · tuyên Phế lợi thuỷ.</span></div>
+        </div>
+        <div class="lk"><b>Liên hệ ngang</b>Vị thuốc quy kinh Phế: Ma hoàng, Hạnh nhân, Cát cánh, Tang bạch bì, Mạch môn, Bách bộ. Huyệt: Liệt khuyết (LU7), Xích trạch (LU5), Phế du (BL13), Thiên đột (CV22). <span class="bg-tag t-in">Tra bản in</span></div>
+        <div class="rf"><b>Cờ đỏ</b>Ho kéo dài trên hai tuần kèm sốt về chiều, ra mồ hôi trộm, sụt cân, ho ra máu — phải loại trừ lao phổi trước khi kết luận Phế âm hư. Bệnh lây và có chương trình quản lý riêng, phải chuyển đúng tuyến.</div>
+      </div>
+    </details>
+
+    <details class="og">
+      <summary><span class="cv">›</span><span class="nm" style="color:var(--thuy)">Thận</span><span class="tg2">Thuỷ · gốc tiên thiên · biểu lý với Bàng quang</span></summary>
+      <div class="bd">
+        <div class="pills"><span class="pill"><i>khai khiếu</i> tai và nhị âm</span><span class="pill"><i>chủ thể</i> cốt, sinh tuỷ</span><span class="pill"><i>vinh nhuận</i> tóc</span><span class="pill"><i>dịch</i> nước bọt</span><span class="pill"><i>chí</i> sợ</span></div>
+        <div class="tier">
+          <div><span class="k">Là gì</span><span class="v"><strong>Tàng tinh</strong>, chủ sinh trưởng, phát dục và sinh sản. <strong>Chủ thuỷ</strong> — khí hoá và điều tiết nước toàn thân. <strong>Chủ nạp khí</strong> — thu nhận khí do Phế đưa xuống. <strong>Chủ cốt sinh tuỷ, thông lên não</strong>. Thận âm và Thận dương là gốc âm dương của toàn bộ các tạng khác.</span></div>
+          <div><span class="k">Cơ chế bệnh lý</span><span class="v">Tinh khí bất túc — trẻ chậm phát triển, người lớn hiếm muộn, lão hoá sớm, răng lung lay, tóc rụng, ù tai, đau lưng mỏi gối. Thận dương hư mất nguồn ấm và khí hoá — sợ lạnh, chi lạnh, tiểu đêm nhiều, phù chi dưới, tiêu chảy lúc gần sáng. Thận âm hư sinh hư nhiệt — nóng lòng bàn tay chân, mồ hôi trộm, họng khô về đêm. Nạp khí hỏng — thở gấp, hít vào khó, hễ vận động là suyễn tăng; <strong>đây là suyễn gốc ở Thận chứ không ở Phế</strong>.</span></div>
+          <div><span class="k">Pháp trị</span><span class="v">Bổ Thận ích tinh · ôn bổ Thận dương · tư bổ Thận âm · bổ Thận nạp khí · ôn dương lợi thuỷ. Do hỗ căn, bổ dương nên gia thuốc âm và ngược lại.</span></div>
+        </div>
+        <div class="lk"><b>Liên hệ ngang</b>Vị thuốc quy kinh Thận: Thục địa, Sơn thù du, Nhục thung dung, Đỗ trọng, Tục đoạn, Nhục quế. Huyệt: Thận du (BL23), Thái khê (KI3), Quan nguyên (CV4), Mệnh môn (GV4). <span class="bg-tag t-in">Tra bản in</span></div>
+        <div class="rf"><b>Cờ đỏ</b>Uống nhiều, tiểu nhiều, ăn nhiều mà sụt cân — nghĩ đái tháo đường và làm xét nghiệm đường huyết, không dừng ở Thận âm hư. Phù toàn thân tiến triển nhanh kèm tiểu ít — nghĩ bệnh thận thực thể.</div>
+      </div>
+    </details>
+
+    <div class="note" style="margin-top:16px">
+      <b>Cách ôn tập.</b> Năm tạng dùng chung một bộ khung: chức năng chính, khai khiếu, chủ thể, vinh nhuận, dịch, chí, phủ tương biểu lý. Che phần nội dung và tự dựng lại khung cho từng tạng — chỗ nào dựng không nổi là chỗ chưa thuộc.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 LỤC PHỦ ══ -->
+<section class="sec" id="phu">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 05</span>
+      <h2>Lục phủ, phủ kỳ hằng và quan hệ tạng phủ</h2>
+      <p class="sec-sub">Nguyên tắc phân biệt: <strong>tạng chứa mà không tả nên đầy mà không thực; phủ tả mà không chứa nên thực mà không đầy</strong>. Phủ lấy thông và giáng làm thuận — tắc là bệnh. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Phủ</th><th>Chức năng</th><th>Khi rối loạn</th></tr></thead>
+        <tbody>
+          <tr><th>Đởm</th><td>Chứa và bài tiết tinh chấp giúp tiêu hoá; chủ quyết đoán. Vừa là phủ vừa thuộc phủ kỳ hằng vì chứa tinh chấp trong sạch.</td><td>Miệng đắng, nôn ra chất đắng, vàng da, hay sợ hãi, ngủ không yên, hay do dự.</td></tr>
+          <tr><th>Vị</th><td>Thu nạp và làm nhừ thuỷ cốc; chủ giáng, đưa xuống Tiểu trường. Gọi là biển của thuỷ cốc.</td><td>Không giáng thì khí nghịch — nấc, ợ, buồn nôn, nôn. Vị hoả thịnh — ăn nhiều mau đói, hôi miệng, chảy máu chân răng.</td></tr>
+          <tr><th>Tiểu trường</th><td>Thụ thịnh và hoá vật; <strong>phân biệt trong đục</strong> — phần trong hấp thu, phần đục xuống Đại trường và Bàng quang.</td><td>Phân biệt trong đục hỏng thì đại tiện lỏng và tiểu ít cùng lúc. Nhận nhiệt từ Tâm truyền xuống thì tiểu đỏ, rít, buốt.</td></tr>
+          <tr><th>Đại trường</th><td>Truyền tống cặn bã, hấp thu phần nước còn lại, tạo phân.</td><td>Táo bón hoặc tiêu chảy. Nhớ liên hệ với Phế: Phế khí không giáng thì Đại trường không thông — táo bón do Phế là chỗ dễ bỏ sót.</td></tr>
+          <tr><th>Bàng quang</th><td>Chứa và bài tiết nước tiểu, phụ thuộc vào khí hoá của Thận.</td><td>Tiểu buốt rắt đục do thấp nhiệt; tiểu nhiều, không cầm, tiểu đêm do Thận khí không cố nhiếp.</td></tr>
+          <tr><th>Tam tiêu</th><td>Đường đi của nguyên khí và đường vận hành thuỷ dịch. Thượng tiêu như sương mù, trung tiêu như bọt sủi, hạ tiêu như ngòi rãnh.</td><td>Thuỷ đạo không thông sinh phù và bí tiểu. <span class="bg-tag t-doi">Quan niệm về hình thái Tam tiêu khác nhau giữa các trường phái — đối chiếu giáo trình</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Phủ kỳ hằng</h3>
+    <p style="font-size:14.5px;color:var(--ink-2);max-width:64ch">Gồm <strong>não, tuỷ, cốt, mạch, đởm và bào cung</strong>. Hình thái giống phủ vì rỗng, nhưng chức năng giống tạng vì chứa tinh khí mà không tả ra ngoài — nên xếp riêng. Não là bể của tuỷ, do Thận sinh tuỷ mà thành; chức năng tinh thần trong YHCT vẫn quy về Tâm và phân ra ngũ tạng chứ không quy về não như y học hiện đại. Đây là chỗ tuyệt đối không được quy đổi một–một.</p>
+
+    <h3>Bốn quan hệ tạng phủ hay thi</h3>
+    <div class="grid g2">
+      <div class="cd"><h4>Tâm và Thận</h4><p>Thuỷ hoả ký tế — Tâm hoả xuống sưởi Thận thuỷ, Thận thuỷ lên chế Tâm hoả. Hỏng thì <strong>Tâm Thận bất giao</strong>: mất ngủ, hồi hộp, di tinh, lưng gối mỏi. Pháp: giao thông Tâm Thận.</p></div>
+      <div class="cd"><h4>Can và Tỳ</h4><p>Can sơ tiết giúp Tỳ vận hoá. Hỏng thì <strong>Can khí phạm Tỳ</strong>: đau bụng đi ngoài khi căng thẳng, đầy bụng, ợ hơi. Pháp: sơ Can kiện Tỳ.</p></div>
+      <div class="cd"><h4>Tỳ và Phế</h4><p>Tỳ vận hoá sinh khí nuôi Phế. Hỏng thì đàm thấp sinh ở Tỳ mà chứa ở Phế: ho đờm nhiều, mệt, chán ăn. Pháp: kiện Tỳ hoá đàm, bồi thổ sinh kim.</p></div>
+      <div class="cd"><h4>Phế và Thận</h4><p>Phế chủ khí và giáng khí xuống, Thận chủ nạp khí. Hỏng thì <strong>Thận không nạp khí</strong>: thở gấp, hít vào khó, hoạt động là nặng hơn. Pháp: bổ Thận nạp khí.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 KHÍ HUYẾT ══ -->
+<section class="sec" id="khihuyet">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 06</span>
+      <h2>Khí · Huyết · Tân dịch · Tinh · Thần</h2>
+      <p class="sec-sub">Nếu tạng phủ là các nhà máy thì đây là <strong>nguyên liệu và sản phẩm lưu thông</strong> giữa chúng. Rối loạn ở tầng này thường là hệ quả của tạng phủ, rồi quay lại làm nặng tạng phủ. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <h3>Bốn loại khí — phân theo nguồn gốc và chỗ đóng</h3>
+    <div class="grid g4">
+      <div class="cd"><h4>Nguyên khí</h4><p>Gốc từ tinh tiên thiên của Thận, được tinh hậu thiên bổ sung. Đi khắp thân qua Tam tiêu. Là động lực gốc của mọi hoạt động sống.</p></div>
+      <div class="cd"><h4>Tông khí</h4><p>Do khí trời hít vào cộng tinh khí thuỷ cốc, tụ ở ngực. Ra thúc đẩy hô hấp, vào thúc đẩy huyết hành. Yếu thì tiếng nói nhỏ và đoản hơi.</p></div>
+      <div class="cd"><h4>Dinh khí</h4><p>Phần tinh chất của thuỷ cốc, đi <strong>trong</strong> lòng mạch, hoá sinh huyết và nuôi dưỡng toàn thân. Thuộc âm.</p></div>
+      <div class="cd"><h4>Vệ khí</h4><p>Phần mạnh và trơn của thuỷ cốc, đi <strong>ngoài</strong> mạch. Bảo vệ bề mặt, sưởi ấm, điều tiết mở đóng lỗ chân lông. Thuộc dương.</p></div>
+    </div>
+
+    <h3>Năm chức năng của khí — và bệnh lý tương ứng</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Chức năng</th><th>Nội dung</th><th>Khi hỏng</th></tr></thead>
+        <tbody>
+          <tr><th>Thôi động</th><td>Thúc đẩy sinh trưởng, huyết hành, tân dịch vận chuyển</td><td>Chậm phát triển, huyết ứ, thuỷ đình</td></tr>
+          <tr><th>Ôn hú</th><td>Sưởi ấm và duy trì thân nhiệt</td><td>Sợ lạnh, chi lạnh — chính là hư hàn</td></tr>
+          <tr><th>Phòng ngự</th><td>Chống tà khí xâm nhập, chủ yếu do vệ khí</td><td>Cảm mạo liên tục, ốm vặt kéo dài</td></tr>
+          <tr><th>Cố nhiếp</th><td>Giữ huyết, mồ hôi, nước tiểu, tinh khỏi thoát ra</td><td>Xuất huyết, tự hãn, tiểu không cầm, di tinh</td></tr>
+          <tr><th>Khí hoá</th><td>Chuyển hoá qua lại giữa khí, huyết, tân dịch và tinh</td><td>Rối loạn chuyển hoá, bí tiểu, phù</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Sáu rối loạn khí cơ</h3>
+    <div class="grid g3">
+      <div class="cd"><h4>Khí hư</h4><p>Lượng khí thiếu. Mệt, đoản hơi, tiếng nói nhỏ, tự hãn, mạch nhược. Pháp: bổ khí.</p></div>
+      <div class="cd"><h4>Khí hãm</h4><p>Khí hư tới mức không nâng đỡ nổi. Sa nội tạng, sa trực tràng, tiêu chảy kéo dài. Pháp: bổ trung ích khí, thăng đề.</p></div>
+      <div class="cd"><h4>Khí trệ</h4><p>Lượng đủ nhưng lưu thông tắc. Trướng đau, đau di chuyển, tăng khi bực, giảm khi ợ hơi hoặc trung tiện. Pháp: hành khí.</p></div>
+      <div class="cd"><h4>Khí nghịch</h4><p>Khí đi sai chiều. Phế nghịch thì ho suyễn; Vị nghịch thì nấc, nôn, ợ; Can nghịch thì đau đầu, choáng. Pháp: giáng khí.</p></div>
+      <div class="cd"><h4>Khí thoát</h4><p>Khí thoát ra ồ ạt. Vã mồ hôi lạnh, chân tay lạnh, mạch rất nhỏ như sắp mất. Cấp cứu — hồi dương cố thoát.</p></div>
+      <div class="cd"><h4>Khí bế</h4><p>Khí bế tắc bên trong không thoát ra. Đột ngột hôn mê, hàm nghiến chặt, hai tay nắm. Cấp cứu — khai khiếu.</p></div>
+    </div>
+
+    <h3>Quan hệ khí và huyết</h3>
+    <div class="grid g2">
+      <div class="cd acc">
+        <span class="lb">Khí đối với huyết</span>
+        <h4>Khí là soái của huyết</h4>
+        <p><strong>Khí sinh huyết</strong> — khí hư lâu sinh huyết hư.<br>
+        <strong>Khí hành huyết</strong> — khí trệ sinh huyết ứ; khí hư cũng sinh huyết ứ vì thiếu lực đẩy.<br>
+        <strong>Khí nhiếp huyết</strong> — khí hư thì huyết tràn ra ngoài mạch, sinh xuất huyết.</p>
+        <p><em>Ứng dụng:</em> trị huyết ứ phải kèm hành khí; trị xuất huyết do hư phải bổ khí chứ không chỉ cầm máu.</p>
+      </div>
+      <div class="cd acc">
+        <span class="lb">Huyết đối với khí</span>
+        <h4>Huyết là mẹ của khí</h4>
+        <p><strong>Huyết dưỡng khí</strong> và <strong>huyết tải khí</strong> — khí bám vào huyết mà tồn tại và di chuyển.</p>
+        <p><em>Ứng dụng:</em> mất máu nhiều thì khí theo huyết mà thoát, nên phải <strong>bổ khí cấp để giữ mạng trước</strong>, bổ huyết sau. Đây là chỗ nhiều người làm ngược.</p>
+      </div>
+    </div>
+
+    <h3>Tân và Dịch</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Tân</th><th>Dịch</th></tr></thead>
+        <tbody>
+          <tr><th>Tính chất</th><td>Trong, loãng, linh hoạt</td><td>Đục, đặc, ít chảy</td></tr>
+          <tr><th>Phân bố</th><td>Bì phu, cơ nhục, khổng khiếu; thấm vào lòng mạch</td><td>Khớp, tạng phủ, não và tuỷ</td></tr>
+          <tr><th>Tác dụng</th><td>Làm ẩm</td><td>Nuôi dưỡng và bôi trơn</td></tr>
+          <tr><th>Khi tổn thương</th><td>Khô miệng, khô da, tiểu ít — hồi phục nhanh</td><td>Hốc mắt trũng, da nhăn, khớp khó cử động — nặng hơn và khó hồi phục</td></tr>
+        </tbody>
+        <caption>Ba tạng chi phối chuyển hoá tân dịch: Phế thông điều thuỷ đạo, Tỳ vận hoá thuỷ thấp, Thận chủ thuỷ. Tân dịch đình đọng thì đi theo chuỗi <strong>thấp → đàm → ẩm → thuỷ</strong>.</caption>
+      </table>
+    </div>
+
+    <h3>Tinh và Thần</h3>
+    <div class="grid g2">
+      <div class="cd">
+        <h4>Tinh</h4>
+        <p>Vật chất cơ bản nhất. <strong>Tinh tiên thiên</strong> nhận từ cha mẹ, tàng ở Thận, quyết định sinh trưởng và sinh sản. <strong>Tinh hậu thiên</strong> do Tỳ Vị hoá sinh từ thuỷ cốc, bổ sung liên tục cho tiên thiên.</p>
+        <p>Hai nguồn nương nhau: tiên thiên thúc đẩy hậu thiên, hậu thiên nuôi lại tiên thiên. Vì thế mọi bệnh mạn tính lâu ngày đều phải xét cả Tỳ lẫn Thận.</p>
+      </div>
+      <div class="cd">
+        <h4>Thần</h4>
+        <p>Nghĩa rộng là biểu hiện tổng thể của sức sống — cái mà vọng chẩn đọc được ngay khi người bệnh bước vào. Nghĩa hẹp là hoạt động tinh thần, ý thức, tư duy, do Tâm chủ và phân ra ngũ tạng.</p>
+        <p><strong>Đắc thần</strong> — mắt sáng, phản ứng nhanh, tiên lượng tốt. <strong>Thất thần</strong> — mắt đờ, phản ứng chậm, tiên lượng xấu. <strong>Giả thần</strong> — bệnh nặng bỗng tỉnh táo đòi ăn, là dấu hiệu nguy kịch, tuyệt đối không được đọc nhầm thành đang khá lên.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 07 KINH LẠC ══ -->
+<section class="sec" id="kinhlac">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 07</span>
+      <h2>Hệ kinh lạc</h2>
+      <p class="sec-sub">Kinh lạc là <strong>đường nối</strong> làm cho chỉnh thể quan trở thành cụ thể: nó là lý do vì sao bệnh ở tạng lại hiện ra ở đầu ngón tay, và vì sao châm một huyệt ở chân lại tác động tới bụng. Không nắm kinh lạc thì châm cứu chỉ còn là châm vào chỗ đau. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <h3>Cấu tạo hệ thống</h3>
+    <div class="grid g2">
+      <div class="cd">
+        <span class="lb">Phần kinh — đường dọc, ở sâu</span>
+        <h4>Mười hai kinh chính và tám mạch kỳ kinh</h4>
+        <p><strong>Mười hai kinh chính</strong> nối trực tiếp với tạng phủ, phân bố đối xứng hai bên, nối thành vòng khép kín.</p>
+        <p><strong>Tám mạch kỳ kinh</strong> — Nhâm, Đốc, Xung, Đới, Âm kiểu, Dương kiểu, Âm duy, Dương duy — không trực thuộc tạng phủ, không đối xứng đủ, giữ vai trò điều tiết và chứa khí huyết thừa. Chỉ Nhâm và Đốc có huyệt riêng nên thường được gộp với mười hai kinh thành <strong>mười bốn đường kinh</strong>.</p>
+        <p>Ngoài ra còn <strong>mười hai kinh biệt</strong> — nhánh sâu tách từ kinh chính, tăng cường liên hệ biểu lý.</p>
+      </div>
+      <div class="cd">
+        <span class="lb">Phần lạc — đường ngang, ở nông</span>
+        <h4>Lạc mạch, kinh cân, bì bộ</h4>
+        <p><strong>Mười lăm lạc mạch</strong> nối các kinh biểu lý với nhau và phân bố ra nông.</p>
+        <p><strong>Mười hai kinh cân</strong> — phần gân cơ chịu sự chi phối của kinh, giải thích các chứng co rút, đau vận động.</p>
+        <p><strong>Mười hai bì bộ</strong> — vùng da tương ứng của mỗi kinh, là nơi tà khí vào trước và cũng là nơi tác động của các thủ thuật ngoài da.</p>
+      </div>
+    </div>
+
+    <h3>Quy luật đi và tên gọi của mười hai kinh chính</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Nhóm</th><th>Hướng đi</th><th>Ba kinh</th></tr></thead>
+        <tbody>
+          <tr><th>Ba kinh âm ở tay</th><td>Từ ngực ra đầu ngón tay</td><td>Thái âm Phế · Quyết âm Tâm bào · Thiếu âm Tâm</td></tr>
+          <tr><th>Ba kinh dương ở tay</th><td>Từ đầu ngón tay lên đầu mặt</td><td>Dương minh Đại trường · Thiếu dương Tam tiêu · Thái dương Tiểu trường</td></tr>
+          <tr><th>Ba kinh dương ở chân</th><td>Từ đầu mặt xuống bàn chân</td><td>Dương minh Vị · Thiếu dương Đởm · Thái dương Bàng quang</td></tr>
+          <tr><th>Ba kinh âm ở chân</th><td>Từ bàn chân lên bụng ngực</td><td>Thái âm Tỳ · Quyết âm Can · Thiếu âm Thận</td></tr>
+        </tbody>
+        <caption>Bốn quy luật giao tiếp: kinh âm ở tay giao với kinh dương ở tay tại <strong>đầu ngón tay</strong>; kinh dương ở tay giao với kinh dương ở chân tại <strong>đầu mặt</strong>; kinh dương ở chân giao với kinh âm ở chân tại <strong>bàn chân</strong>; kinh âm ở chân giao với kinh âm ở tay tại <strong>ngực</strong>. Thuộc bốn điểm giao này là thuộc được cả vòng.</caption>
+      </table>
+    </div>
+
+    <h3>Vòng lưu chú theo giờ</h3>
+    <p style="font-size:14.5px;color:var(--ink-2);max-width:64ch">Khí huyết đi hết mười hai kinh trong một ngày đêm, mỗi kinh vượng trong hai giờ. Vòng bắt đầu từ Phế và khép lại ở Can rồi quay về Phế. Trên lâm sàng, <strong>giờ triệu chứng nặng lên là một dữ kiện chẩn đoán thật</strong> — hen nặng lúc gần sáng gợi Phế, mất ngủ tỉnh giấc quãng một tới ba giờ gợi Can.</p>
+    <div class="clockwrap">
+      <div>
+        <svg id="clock" viewBox="0 0 560 560" role="img" aria-label="Vòng lưu chú mười hai kinh theo giờ"></svg>
+        <div class="lgd">
+          <span><i style="background:var(--am)"></i>Kinh âm — thuộc tạng</span>
+          <span><i style="background:var(--duong)"></i>Kinh dương — thuộc phủ</span>
+        </div>
+      </div>
+      <div>
+        <div class="lk" style="margin-top:0"><b>Đọc vòng này thế nào</b>
+          Đi theo chiều kim đồng hồ là chiều lưu chú. Mỗi cặp liền kề tạng–phủ chính là một cặp <strong>biểu lý</strong>: Phế với Đại trường, Vị với Tỳ, Tâm với Tiểu trường, Bàng quang với Thận, Tâm bào với Tam tiêu, Đởm với Can. Nhìn vòng là ra luôn bảng biểu lý, không phải học thuộc riêng.
+        </div>
+        <div class="note" style="margin-top:12px">
+          <b>Bốn ứng dụng của kinh lạc.</b>
+          <strong>Sinh lý</strong> — vận hành khí huyết, nối trong với ngoài.
+          <strong>Bệnh lý</strong> — đường truyền của tà khí và đường phản ánh của bệnh tạng phủ ra thể biểu.
+          <strong>Chẩn đoán</strong> — định vị bệnh theo kinh: đau vùng sườn nghĩ kinh Can Đởm, đau mặt ngoài chân nghĩ kinh Đởm.
+          <strong>Điều trị</strong> — cơ sở của châm cứu, xoa bóp, và của học thuyết quy kinh của vị thuốc.
+        </div>
+        <div class="rf" style="margin-top:12px"><b>Ranh giới</b>
+          Trang này chỉ trình bày khung hệ thống. <strong>Đường đi cụ thể của từng kinh, vị trí giải phẫu của huyệt, hướng và độ sâu châm, chống chỉ định</strong> đều là dữ kiện phải tra bản in — giáo trình Châm cứu và văn bản quy định danh mục kỹ thuật. Không dùng bất kỳ con số nào từ trí nhớ. <span class="bg-tag t-in">Tra bản in</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 08 NGUYÊN NHÂN ══ -->
+<section class="sec" id="nguyennhan">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 08</span>
+      <h2>Nguyên nhân gây bệnh</h2>
+      <p class="sec-sub">YHCT không truy nguyên nhân bằng cách tìm tác nhân, mà bằng cách <strong>đọc ngược từ đặc điểm của triệu chứng ra tính chất của tà khí</strong> — gọi là biện chứng cầu nhân. Vì thế mỗi tà khí phải thuộc <em>đặc tính</em>, không phải thuộc tên. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <div class="chain">
+      <b>Ngoại nhân</b><u>·</u><b>Nội nhân</b><u>·</u><b>Bất nội ngoại nhân</b><u>·</u><b>Sản vật bệnh lý</b>
+    </div>
+
+    <h3>Ngoại nhân — Lục dâm</h3>
+    <p style="font-size:14.5px;color:var(--ink-2);max-width:66ch">Sáu khí phong, hàn, thử, thấp, táo, hoả vốn là khí hậu bình thường. Chúng chỉ thành <strong>lục dâm</strong> khi thái quá, bất cập, trái mùa, hoặc khi chính khí người bệnh không chống nổi. Cùng một trận mưa lạnh, người thành bệnh người không — nên nguyên nhân luôn là tương quan giữa tà và chính, không phải riêng tà.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Tà khí</th><th>Đặc tính cần thuộc</th><th>Nhận ra trên lâm sàng</th></tr></thead>
+        <tbody>
+          <tr><th class="c-moc">Phong</th><td>Dương tà, nhẹ và bốc lên nên phạm phần trên và phần biểu; đi nhanh biến hoá nhanh; chủ động; là đầu các bệnh, thường kéo tà khác theo.</td><td>Khởi bệnh đột ngột, sợ gió, ra mồ hôi, đau di chuyển không cố định, ngứa chạy chỗ, co giật rung giật, méo miệng.</td></tr>
+          <tr><th class="c-thuy">Hàn</th><td>Âm tà, dễ làm tổn dương khí; ngưng trệ làm tắc; thu dẫn làm co rút và đóng lỗ chân lông.</td><td>Sợ lạnh rõ, không ra mồ hôi, <strong>đau dữ và cố định</strong>, chân tay co quắp, chườm ấm thì dễ chịu, chất tiết trong loãng.</td></tr>
+          <tr><th class="c-hoa">Thử</th><td>Dương tà thuần nhiệt, chỉ có ở mùa hè và <strong>chỉ có ngoại cảm, không có nội thử</strong>; thăng tán nên hao khí thương tân; hay kèm thấp.</td><td>Sốt cao, khát nhiều, ra nhiều mồ hôi, mệt lả, nước tiểu vàng sẫm; kèm thấp thì thêm nặng nề, buồn nôn, đại tiện nhão.</td></tr>
+          <tr><th class="c-tho">Thấp</th><td>Âm tà, cản trở khí cơ và làm tổn dương; nặng và đục; <strong>dính trệ nên bệnh kéo dài và hay tái phát</strong>; hướng xuống nên phạm phần dưới.</td><td>Người nặng nề như đeo đá, đầu nặng, khớp đau nặng cố định, chất tiết đục dính, rêu lưỡi nhớt, phù chi dưới, bệnh dai dẳng.</td></tr>
+          <tr><th class="c-kim">Táo</th><td>Khô, dễ thương tân dịch; dễ thương Phế vì Phế ưa ẩm. Chia ôn táo và lương táo tuỳ kèm nhiệt hay kèm hàn.</td><td>Miệng mũi họng khô, da khô nứt, ho khan ít đờm hoặc đờm dính khó khạc, đại tiện khô.</td></tr>
+          <tr><th class="c-hoa">Hoả và Nhiệt</th><td>Dương tà bốc lên; hao khí thương tân; sinh phong và động huyết; dễ gây sưng đau mưng mủ; nhiễu loạn thần minh.</td><td>Sốt cao, mặt đỏ mắt đỏ, khát thích uống lạnh, tiểu đỏ, táo; nặng thì co giật, mê sảng, xuất huyết, mụn nhọt.</td></tr>
+        </tbody>
+        <caption>Ngoài lục dâm còn có <strong>lệ khí</strong> — tà khí truyền nhiễm mạnh, phát bệnh nhanh, triệu chứng giống nhau ở nhiều người, dễ thành dịch. Đây là khái niệm YHCT tương ứng gần với bệnh truyền nhiễm; gặp là phải nghĩ tới báo cáo và cách ly theo quy định hiện hành, không xử trí đơn lẻ.</caption>
+      </table>
+    </div>
+
+    <div class="note">
+      <b>Phân biệt sống còn: ngoại tà và nội sinh.</b> Có năm thứ trùng tên nhưng khác gốc — <strong>nội phong, nội hàn, nội thấp, nội táo, nội hoả</strong>. Chúng sinh từ rối loạn tạng phủ chứ không từ ngoài vào: nội phong phần lớn do Can, nội hàn do dương hư, nội thấp do Tỳ, nội táo do tân dịch hao, nội hoả do âm hư hoặc uất hoá. <strong>Cùng tên nhưng pháp trị ngược nhau</strong> — ngoại tà thì khu trừ, nội sinh thì điều tạng. Nhầm ở đây là điều trị sai hướng hoàn toàn.
+    </div>
+
+    <h3>Nội nhân — Thất tình</h3>
+    <p style="font-size:14.5px;color:var(--ink-2);max-width:66ch">Bảy trạng thái tình chí: mừng, giận, lo, nghĩ, buồn, sợ, kinh hãi. Chúng chỉ gây bệnh khi <strong>quá mạnh hoặc kéo dài</strong> vượt khả năng điều tiết. Đặc điểm riêng của nhóm này: chúng làm bệnh <strong>trực tiếp vào tạng</strong>, không qua giai đoạn ở biểu — nên bệnh do thất tình thường khởi ngay ở trong.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Tình chí</th><th>Tổn thương tạng</th><th>Ảnh hưởng lên khí cơ</th></tr></thead>
+        <tbody>
+          <tr><th>Giận</th><td class="c-moc">Can</td><td>Khí bốc lên — đau đầu, mặt đỏ, choáng, nặng thì nôn ra máu hoặc ngất</td></tr>
+          <tr><th>Mừng quá</th><td class="c-hoa">Tâm</td><td>Khí lỏng lẻo tản mát — hồi hộp, mất tập trung, cười nói không kiềm chế</td></tr>
+          <tr><th>Lo nghĩ</th><td class="c-tho">Tỳ</td><td>Khí kết lại — chán ăn, đầy bụng, mất ngủ, suy nghĩ luẩn quẩn</td></tr>
+          <tr><th>Buồn và ưu tư</th><td class="c-kim">Phế</td><td>Khí tiêu hao — đoản hơi, uể oải, tiếng nói yếu, hay thở dài</td></tr>
+          <tr><th>Sợ</th><td class="c-thuy">Thận</td><td>Khí đi xuống — đại tiểu tiện không cầm, di tinh, hai chân bủn rủn</td></tr>
+          <tr><th>Kinh hãi</th><td class="c-hoa">Tâm</td><td>Khí rối loạn — hoảng hốt, tim đập loạn, không định thần được</td></tr>
+        </tbody>
+        <caption>Nguyên văn các câu về ảnh hưởng của tình chí lên khí cơ thuộc kinh điển. <span class="bg-tag t-in">Chép đúng theo bản in, không dùng bản diễn giải ở đây</span></caption>
+      </table>
+    </div>
+
+    <h3>Bất nội ngoại nhân</h3>
+    <div class="grid g4">
+      <div class="cd"><h4>Ẩm thực</h4><p>Ăn không điều độ, ăn không sạch, thiên lệch một vị. Tổn thương trực tiếp Tỳ Vị — đầy bụng, đau, tiêu chảy, hoặc sinh thấp nhiệt.</p></div>
+      <div class="cd"><h4>Lao dật</h4><p>Lao lực làm hao khí; lao thần làm tổn Tâm Tỳ; phòng lao làm hao tinh Thận. Ngược lại quá nhàn rỗi thì khí huyết trì trệ, Tỳ Vị yếu đi.</p></div>
+      <div class="cd"><h4>Ngoại thương</h4><p>Chấn thương, bỏng, côn trùng và động vật cắn. Gây tổn thương cục bộ, chảy máu, sưng đau, có thể sinh ứ huyết.</p></div>
+      <div class="cd"><h4>Ký sinh trùng</h4><p>Gây đau bụng quanh rốn từng cơn, ăn nhiều mà gầy, sắc mặt vàng bủng, ngứa hậu môn.</p></div>
+    </div>
+
+    <h3>Sản vật bệnh lý — vừa là kết quả, vừa thành nguyên nhân mới</h3>
+    <div class="grid g3">
+      <div class="cd">
+        <h4>Đàm ẩm</h4>
+        <p>Sinh ra khi tân dịch không được vận hoá, đọng lại. Đàm đặc dính, ẩm trong loãng.</p>
+        <p><strong>Đàm hữu hình</strong> ở Phế thì ho có đờm. <strong>Đàm vô hình</strong> đi khắp nơi: lên đầu thì choáng, che tâm khiếu thì thần chí bất thường, ở kinh lạc thì tê bì và u cục, ở họng thì cảm giác vướng như có vật. <strong>Rêu lưỡi nhớt và mạch hoạt là hai dấu quan trọng.</strong></p>
+      </div>
+      <div class="cd">
+        <h4>Ứ huyết</h4>
+        <p>Huyết ra khỏi mạch không tan, hoặc huyết chảy không thông. Bốn nguyên nhân gốc: khí trệ, khí hư, hàn ngưng, nhiệt hun đốt.</p>
+        <p>Nhận diện: <strong>đau như kim châm, cố định một chỗ, cự án, đau tăng về đêm</strong>; có khối cứng; xuất huyết màu tím có cục; sắc mặt tối sạm, môi lưỡi tím hoặc có điểm ứ; mạch sáp.</p>
+      </div>
+      <div class="cd">
+        <h4>Kết thạch</h4>
+        <p>Chất cặn kết lại thành sỏi ở đường mật, đường tiết niệu. Phần lớn liên quan thấp nhiệt hun đúc lâu ngày.</p>
+        <p><strong>Cờ đỏ:</strong> cơn đau quặn dữ dội kèm sốt cao rét run, vàng da, hoặc bí tiểu hoàn toàn — là cấp cứu ngoại khoa, không phải chỗ để bài thuốc bài sỏi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 09 BỆNH CƠ ══ -->
+<section class="sec" id="benhco">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 09</span>
+      <h2>Cơ chế bệnh sinh</h2>
+      <p class="sec-sub">Bài quan trọng nhất khối mà lại hay bị coi là khô. Đây chính là <strong>tầng thứ hai</strong> trong khung ba tầng — chỗ nối giữa nguyên nhân và pháp trị. Ai nắm được bài này thì không cần học thuộc pháp trị nữa. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <h3>Bốn nhóm cơ chế</h3>
+    <div class="grid g2">
+      <div class="cd acc">
+        <span class="lb">Nhóm 01</span>
+        <h4>Chính tà tương tranh — quyết định hư hay thực</h4>
+        <p>Đây là trục gốc. <strong>Tà khí thịnh thì thành thực, tinh khí bị đoạt thì thành hư.</strong> <span class="bg-tag t-in">Nguyên văn tra bản in</span></p>
+        <p>Ba diễn biến: tà thắng chính thì bệnh nặng lên; chính thắng tà thì bệnh lui; hai bên giằng co thì bệnh chuyển sang mạn tính. Ngoài ra có <strong>hư thực thác tạp</strong> — vừa hư vừa thực cùng lúc, là tình huống thường gặp nhất ở bệnh lâu ngày và cũng khó xử lý nhất.</p>
+      </div>
+      <div class="cd acc">
+        <span class="lb">Nhóm 02</span>
+        <h4>Âm dương thất điều</h4>
+        <p><strong>Thiên thịnh</strong> — dương thắng hoặc âm thắng, sinh thực nhiệt hoặc thực hàn.<br>
+        <strong>Thiên suy</strong> — dương hư hoặc âm hư, sinh hư hàn hoặc hư nhiệt.<br>
+        <strong>Hỗ tổn</strong> — một bên hư lâu kéo bên kia hư theo, thành âm dương lưỡng hư.<br>
+        <strong>Cách cự</strong> — âm thịnh cách dương ra ngoài, hoặc nhiệt thịnh giấu vào trong; đây chính là gốc của chân giả.<br>
+        <strong>Vong âm và vong dương</strong> — âm hoặc dương thoát ra ồ ạt, là tình trạng nguy kịch.</p>
+      </div>
+      <div class="cd acc">
+        <span class="lb">Nhóm 03</span>
+        <h4>Khí huyết tân dịch thất thường</h4>
+        <p>Khí thì hư, trệ, nghịch, hãm, thoát, bế. Huyết thì hư, ứ, xuất huyết, huyết nhiệt. Tân dịch thì hao tổn hoặc đình đọng thành thấp, đàm, ẩm, thuỷ.</p>
+        <p>Ba hệ này không độc lập: khí hư sinh huyết ứ, huyết ứ lại cản khí; khí không hành thuỷ thì sinh đàm, đàm lại chặn khí. <strong>Vòng xoắn này là lý do bệnh mạn tính càng để lâu càng phức tạp.</strong></p>
+      </div>
+      <div class="cd acc">
+        <span class="lb">Nhóm 04</span>
+        <h4>Thăng giáng xuất nhập thất thường</h4>
+        <p>Mọi hoạt động sống đều là bốn vận động này của khí. Mỗi tạng phủ có chiều riêng: Tỳ thăng Vị giáng, Phế túc giáng Can thăng phát, Thận nạp khí xuống, Tâm hoả xuống Thận thuỷ lên.</p>
+        <p>Sai chiều thì ra bệnh cụ thể: Vị không giáng thì nôn nấc; Tỳ không thăng thì tiêu chảy và sa nội tạng; Phế không giáng thì ho suyễn; Tâm Thận không lên xuống được thì mất ngủ.</p>
+      </div>
+    </div>
+
+    <h3>Đường truyền biến</h3>
+    <div class="chain">
+      <b>Bì mao</b><u>→</u><b>Cơ biểu và kinh lạc</b><u>→</u><b>Phủ</b><u>→</u><b>Tạng</b>
+    </div>
+    <p style="font-size:14.5px;color:var(--ink-2);max-width:66ch">Truyền từ biểu vào lý là bệnh nặng lên; từ lý ra biểu là bệnh lui. Trong tạng phủ thì bệnh truyền theo quan hệ ngũ hành và theo quan hệ biểu lý. <strong>Ý nghĩa thực hành:</strong> tiên lượng được đường truyền thì chặn được trước — trị bệnh khi tà còn ở biểu bao giờ cũng nhẹ hơn khi đã vào tạng. Đây cũng là nền của tư tưởng phòng bệnh và ngăn bệnh lan.</p>
+
+    <div class="rf">
+      <b>Nguyên tắc nhắc lại</b>
+      Phân tích cơ chế bệnh sinh theo YHCT không thay cho việc loại trừ nguyên nhân nguy hiểm. Một chuỗi cơ chế được dựng chặt chẽ trên nền chẩn đoán sai vẫn dẫn tới điều trị sai — và càng chặt chẽ thì càng khó tự phát hiện là mình sai.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 10 TỨ CHẨN ══ -->
+<section class="sec" id="tuchan">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 10</span>
+      <h2>Tứ chẩn</h2>
+      <p class="sec-sub">Bốn cách thu thập dữ kiện. Nguyên tắc bao trùm là <strong>tứ chẩn hợp tham</strong> — không chẩn nào được dùng một mình, và khi các chẩn mâu thuẫn thì chính chỗ mâu thuẫn ấy là manh mối, không phải chỗ để bỏ qua. <span class="bg-tag t-doi">Ở một số trường, nội dung này nằm ở học phần Chẩn đoán YHCT — đối chiếu phân bổ chương trình</span></p>
+    </div>
+
+    <div class="grid g4">
+      <div class="cd"><span class="lb">Chẩn 01</span><h4>Vọng — nhìn</h4><p>Thần, sắc, hình thái, dáng đi, các bộ phận, chất thải. Riêng <strong>vọng thiệt</strong> — xem lưỡi — là mục lớn nhất.</p></div>
+      <div class="cd"><span class="lb">Chẩn 02</span><h4>Văn — nghe và ngửi</h4><p>Tiếng nói, tiếng ho, tiếng thở, tiếng nấc; mùi hơi thở, mùi chất thải. Tiếng to mạnh thuộc thực, tiếng nhỏ yếu thuộc hư.</p></div>
+      <div class="cd"><span class="lb">Chẩn 03</span><h4>Vấn — hỏi</h4><p>Theo trình tự thập vấn: hàn nhiệt, mồ hôi, đầu mình, đại tiểu tiện, ăn uống, ngực bụng, tai, khát, cũ mới, nguyên nhân; thêm kinh nguyệt với nữ và bệnh sử với trẻ nhỏ.</p></div>
+      <div class="cd"><span class="lb">Chẩn 04</span><h4>Thiết — sờ và bắt mạch</h4><p>Bắt mạch ở thốn khẩu chia ba bộ thốn, quan, xích; và sờ nắn da, tay chân, ngực bụng, huyệt vị.</p></div>
+    </div>
+
+    <h3>Xem lưỡi — hai phần tách bạch</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Quan sát</th><th>Biểu hiện</th><th>Ý nghĩa</th></tr></thead>
+        <tbody>
+          <tr><th rowspan="4">Chất lưỡi<br><small>phản ánh tạng phủ, khí huyết</small></th><td>Nhợt</td><td>Khí huyết hư, hoặc hư hàn</td></tr>
+          <tr><td>Đỏ</td><td>Nhiệt — thực nhiệt hoặc âm hư nội nhiệt</td></tr>
+          <tr><td>Đỏ sẫm</td><td>Nhiệt vào sâu phần dinh huyết, hoặc âm hư nặng</td></tr>
+          <tr><td>Tím hoặc có điểm ứ</td><td>Ứ huyết; tím tối kèm ướt thì thiên về hàn ngưng</td></tr>
+          <tr><th rowspan="3">Rêu lưỡi<br><small>phản ánh tà khí và tình trạng Vị khí</small></th><td>Trắng</td><td>Biểu chứng hoặc hàn chứng</td></tr>
+          <tr><td>Vàng</td><td>Lý chứng, nhiệt chứng; càng vàng sẫm nhiệt càng nặng</td></tr>
+          <tr><td>Dày nhớt</td><td>Đàm thấp, thực tích. Rêu ít hoặc bong sạch thì gợi âm hư hoặc Vị khí suy</td></tr>
+        </tbody>
+        <caption>Luôn xem cả hai phần rồi mới kết luận. Lưỡi đỏ mà không rêu là hình ảnh kinh điển của âm hư — khác hẳn lưỡi đỏ rêu vàng dày của thực nhiệt, và pháp trị hai bên ngược nhau.</caption>
+      </table>
+    </div>
+
+    <h3>Mạch — sáu cặp cần vững trước</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Cặp</th><th>Đối lập</th><th>Cho biết</th></tr></thead>
+        <tbody>
+          <tr><th>Phù · Trầm</th><td>Ấn nhẹ đã thấy rõ · phải ấn sâu mới thấy</td><td>Vị trí bệnh: ở biểu hay ở lý</td></tr>
+          <tr><th>Trì · Sác</th><td>Chậm · nhanh</td><td>Tính chất: hàn hay nhiệt</td></tr>
+          <tr><th>Hư · Thực</th><td>Vô lực · hữu lực</td><td>Tương quan chính tà: hư hay thực</td></tr>
+          <tr><th>Hoạt · Sáp</th><td>Trơn như hạt lăn · rít khó khăn</td><td>Đàm thấp, thực tích, thai nghén · huyết ứ, tinh huyết hao</td></tr>
+          <tr><th>Huyền · Khẩn</th><td>Căng như dây đàn · căng và cuộn như dây thừng</td><td>Can Đởm, đau, đàm ẩm · hàn, đau dữ</td></tr>
+          <tr><th>Hồng · Tế</th><td>To mạnh dâng lên · nhỏ như sợi chỉ</td><td>Nhiệt thịnh · khí huyết hư, âm hư</td></tr>
+        </tbody>
+        <caption>Bảng đầy đủ gồm hai mươi tám mạch, số lượng và cách phân loại khác nhau giữa các sách. <span class="bg-tag t-doi">Đối chiếu chương Mạch chẩn trong giáo trình của trường</span> · Ba bộ thốn quan xích ứng với tạng phủ nào cũng là chỗ có nhiều dị bản, phải theo giáo trình đang học.</caption>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 11 BÁT CƯƠNG ══ -->
+<section class="sec" id="batcuong">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 11</span>
+      <h2>Bát cương và các phép biện chứng</h2>
+      <p class="sec-sub">Bát cương là <strong>bộ lọc đầu tiên</strong>: sau khi có dữ kiện từ tứ chẩn, phải trả lời bốn câu hỏi trước khi làm gì khác — bệnh ở đâu, tính chất gì, chính tà ra sao, và tổng thể thuộc âm hay dương. <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Cương</th><th>Trả lời câu hỏi</th><th>Vế thứ nhất</th><th>Vế thứ hai</th></tr></thead>
+        <tbody>
+          <tr><th>Biểu · Lý</th><td>Bệnh ở đâu?</td><td><strong>Biểu</strong> — sợ lạnh phát sốt cùng lúc, đau đầu mình, rêu trắng mỏng, mạch phù. Bệnh mới, nông.</td><td><strong>Lý</strong> — không còn sợ lạnh mà chỉ nóng hoặc chỉ lạnh, triệu chứng tập trung ở tạng phủ, mạch trầm.</td></tr>
+          <tr><th>Hàn · Nhiệt</th><td>Tính chất gì?</td><td><strong>Hàn</strong> — sợ lạnh thích ấm, không khát hoặc thích uống nóng, sắc trắng, chất tiết trong loãng, tiểu trong dài, lưỡi nhợt rêu trắng, mạch trì.</td><td><strong>Nhiệt</strong> — sốt thích mát, khát thích uống lạnh, mặt đỏ, chất tiết vàng đặc, tiểu đỏ ngắn, táo, lưỡi đỏ rêu vàng, mạch sác.</td></tr>
+          <tr><th>Hư · Thực</th><td>Chính tà thế nào?</td><td><strong>Hư</strong> — chính khí suy. Bệnh lâu, người yếu, đau âm ỉ thích xoa ấn, tiếng nhỏ, mạch vô lực.</td><td><strong>Thực</strong> — tà khí thịnh. Bệnh mới, thể trạng còn tốt, đau dữ cự án, tiếng to, mạch hữu lực.</td></tr>
+          <tr><th>Âm · Dương</th><td>Tổng kết lại là gì?</td><td><strong>Âm</strong> — gồm lý, hàn, hư. Là tổng cương của ba cặp trên.</td><td><strong>Dương</strong> — gồm biểu, nhiệt, thực.</td></tr>
+        </tbody>
+        <caption>Trong thực hành, câu hỏi <strong>hư hay thực</strong> thường quyết định nhiều nhất, vì nó phân đôi hướng điều trị thành bổ hay tả. Trả lời sai câu này thì ba câu kia đúng cũng vô nghĩa.</caption>
+      </table>
+    </div>
+
+    <h3>Hai mở rộng bắt buộc phải biết</h3>
+    <div class="grid g2">
+      <div class="cd">
+        <span class="lb">Mở rộng 01</span>
+        <h4>Chứng thác tạp — đan xen</h4>
+        <p><strong>Biểu lý đồng bệnh</strong> — tà còn ở biểu mà lý đã có bệnh.<br>
+        <strong>Hàn nhiệt thác tạp</strong> — trên nhiệt dưới hàn, hoặc ngoài hàn trong nhiệt.<br>
+        <strong>Hư thực thác tạp</strong> — chính đã hư mà tà vẫn thịnh; hay gặp nhất ở bệnh mạn tính và ở người cao tuổi.</p>
+        <p>Xử lý: phải xác định <strong>cái nào là chính, cái nào là phụ, cái nào cấp hơn</strong> — dẫn thẳng sang nguyên tắc tiêu bản hoãn cấp ở bài sau.</p>
+      </div>
+      <div class="cd">
+        <span class="lb">Mở rộng 02</span>
+        <h4>Chân giả — nguy hiểm nhất</h4>
+        <p><strong>Chân hàn giả nhiệt</strong> — bên trong hàn thật, đẩy dương ra ngoài nên có vẻ nóng: mặt đỏ nhưng nhợt từng mảng, thân nóng nhưng người bệnh vẫn muốn đắp chăn, khát mà không uống được nhiều hoặc thích uống nóng, mạch to nhưng ấn xuống trống rỗng.</p>
+        <p><strong>Chân nhiệt giả hàn</strong> — nhiệt thịnh bên trong nên chân tay lạnh, nhưng ngực bụng nóng, hơi thở nóng, tiểu đỏ, lưỡi đỏ rêu vàng, mạch trầm mà hữu lực.</p>
+        <p><strong>Cách gỡ:</strong> khi ngoài và trong mâu thuẫn, lấy <strong>lưỡi, mạch có lực hay không, và nhu cầu thật của người bệnh</strong> làm chuẩn; đừng lấy biểu hiện bề mặt.</p>
+      </div>
+    </div>
+
+    <h3>Các phép biện chứng khác — vị trí trong hệ thống</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Phép</th><th>Dùng cho</th><th>Ghi chú</th></tr></thead>
+        <tbody>
+          <tr><th>Biện chứng tạng phủ</th><td>Bệnh nội thương, bệnh mạn tính</td><td>Là phép dùng nhiều nhất trên lâm sàng nội khoa; xây trực tiếp trên bài Tạng tượng.</td></tr>
+          <tr><th>Biện chứng khí huyết tân dịch</th><td>Rối loạn ở tầng vật chất cơ bản</td><td>Thường phối hợp với biện chứng tạng phủ chứ ít dùng riêng.</td></tr>
+          <tr><th>Biện chứng lục kinh</th><td>Bệnh ngoại cảm do hàn tà</td><td>Sáu giai đoạn theo chiều nặng dần. <span class="bg-tag t-vuot">Đi sâu thuộc học phần bệnh học sau</span></td></tr>
+          <tr><th>Biện chứng vệ khí dinh huyết</th><td>Bệnh ngoại cảm ôn nhiệt</td><td>Bốn tầng theo chiều tà vào sâu dần. <span class="bg-tag t-vuot">Đi sâu ở học phần sau</span></td></tr>
+          <tr><th>Biện chứng tam tiêu</th><td>Bệnh ôn nhiệt, phân theo vị trí trên giữa dưới</td><td>Bổ sung cho phép vệ khí dinh huyết. <span class="bg-tag t-vuot">Đi sâu ở học phần sau</span></td></tr>
+        </tbody>
+        <caption>Ở năm nhất chỉ cần định vị được từng phép dùng cho loại bệnh nào; đi sâu vào lục kinh và vệ khí dinh huyết là nội dung các học phần sau. <span class="bg-tag t-doi">Thứ tự giảng dạy khác nhau giữa các trường</span></caption>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 12 ĐIỀU TRỊ ══ -->
+<section class="sec" id="dieutri">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Bài 12</span>
+      <h2>Nguyên tắc và phương pháp điều trị</h2>
+      <p class="sec-sub">Chặng cuối khép vòng: từ chứng đã biện ra pháp, rồi từ pháp mới tới phương và dược. <strong>Pháp đặt sai thì bài thuốc hay đến mấy cũng sai.</strong> <span class="bg-tag t-nen">Nền tảng</span></p>
+    </div>
+
+    <div class="chain">
+      <b>Lý</b><u>→</u><b>Pháp</b><u>→</u><b>Phương</b><u>→</u><b>Dược</b>
+    </div>
+    <p style="font-size:14px;color:var(--muted);margin-top:4px">Bốn bước không được nhảy cóc. Nhớ bài thuốc mà không dựng được pháp là học ngược chiều.</p>
+
+    <h3>Sáu nguyên tắc</h3>
+    <div class="grid g3">
+      <div class="cd"><h4>Trị bệnh cầu bản</h4><p>Tìm và trị cái gốc, không chạy theo triệu chứng nổi bật nhất. Đây là nguyên tắc bao trùm mọi nguyên tắc còn lại.</p></div>
+      <div class="cd"><h4>Tiêu bản hoãn cấp</h4><p>Bản là gốc, tiêu là ngọn. <strong>Cấp thì trị tiêu trước</strong> — ví dụ xuất huyết ồ ạt hay bí tiểu cấp. <strong>Hoãn thì trị bản.</strong> Không cấp không hoãn thì tiêu bản đồng trị.</p></div>
+      <div class="cd"><h4>Phù chính khu tà</h4><p>Chính hư là chính thì phù chính; tà thịnh là chính thì khu tà. Hư thực lẫn lộn thì làm cả hai, nhưng phải xác định cái nào trước. Nguyên tắc an toàn: <strong>khu tà không được làm tổn chính, phù chính không được giữ tà lại.</strong></p></div>
+      <div class="cd"><h4>Điều chỉnh âm dương</h4><p>Thừa thì bớt, thiếu thì bù. Là ứng dụng trực tiếp của bài 02, và là cách phát biểu khác của mục tiêu điều trị nói chung.</p></div>
+      <div class="cd"><h4>Chính trị và phản trị</h4><p><strong>Chính trị</strong> — dùng thuốc ngược tính chất bệnh: hàn thì nhiệt, nhiệt thì hàn. Dùng cho phần lớn trường hợp.<br><strong>Phản trị</strong> — dùng thuốc thuận theo biểu hiện giả, áp dụng đúng ở các chứng chân giả. <span class="bg-tag t-in">Bốn dạng phản trị cần tra bản in trước khi dùng</span></p></div>
+      <div class="cd"><h4>Tam nhân chế nghi</h4><p>Tuỳ <strong>thời</strong> — mùa nào tránh thuốc gì; tuỳ <strong>địa</strong> — khí hậu vùng miền; tuỳ <strong>nhân</strong> — tuổi, giới, thể chất, thai sản, bệnh nền. Đây là nơi phép tắc chung gặp người bệnh cụ thể.</p></div>
+    </div>
+
+    <h3>Bát pháp</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Pháp</th><th>Làm gì</th><th>Dùng khi</th><th>Thận trọng</th></tr></thead>
+        <tbody>
+          <tr><th>Hãn</th><td>Cho ra mồ hôi để đuổi tà ở biểu</td><td>Biểu chứng, giai đoạn đầu ngoại cảm</td><td>Không dùng khi mất nước, mất máu, ra mồ hôi nhiều sẵn; ra mồ hôi vừa đủ, không làm đến kiệt</td></tr>
+          <tr><th>Thổ</th><td>Gây nôn để tống chất độc hoặc đàm thực ở trên</td><td>Rất hạn chế trong thực hành hiện nay</td><td>Nguy cơ sặc và tổn thương; hầu như không dùng ở tuyến cơ sở</td></tr>
+          <tr><th>Hạ</th><td>Thông đại tiện để tống tích trệ ở dưới</td><td>Lý thực, táo kết, tích trệ</td><td>Thận trọng ở người già yếu, phụ nữ có thai và sau sinh, người mất nước</td></tr>
+          <tr><th>Hoà</th><td>Điều hoà khi bệnh ở giữa biểu và lý, hoặc giữa các tạng</td><td>Chứng bán biểu bán lý; Can Tỳ bất hoà; Can Vị bất hoà</td><td>Không dùng thay cho việc xác định rõ vị trí bệnh</td></tr>
+          <tr><th>Ôn</th><td>Làm ấm, trừ hàn, hồi dương</td><td>Lý hàn, dương hư, hàn ngưng</td><td>Không dùng khi có nhiệt thật; phân biệt kỹ với chân nhiệt giả hàn</td></tr>
+          <tr><th>Thanh</th><td>Làm mát, tả hoả, giải độc</td><td>Lý nhiệt các loại</td><td>Thuốc hàn lương dễ tổn Tỳ Vị; không dùng kéo dài, không dùng khi hư hàn</td></tr>
+          <tr><th>Tiêu</th><td>Làm tan dần khối tích, đàm, thực, thuỷ, ứ</td><td>Tích tụ hình thành từ từ</td><td>Tác dụng chậm, cần thời gian; người hư nhược phải phối thuốc bổ</td></tr>
+          <tr><th>Bổ</th><td>Bồi bổ khí, huyết, âm, dương</td><td>Các chứng hư</td><td>Không bổ khi tà còn thịnh, sẽ giữ tà lại; Tỳ Vị yếu quá thì phải kiện Tỳ trước mới bổ được</td></tr>
+        </tbody>
+        <caption>Trên thực tế các pháp thường phối hợp chứ ít dùng đơn độc. <span class="bg-tag t-in">Mọi bài thuốc minh hoạ cho từng pháp phải tra thành phần và liều từ bản in trước khi ghi vào sổ tay</span></caption>
+      </table>
+    </div>
+
+    <div class="note">
+      <b>Khép vòng cả khối.</b> Đọc ngược lại từ đây: bát pháp đến từ nguyên tắc điều trị, nguyên tắc đến từ chứng đã biện qua bát cương, bát cương đến từ dữ kiện tứ chẩn, dữ kiện phản ánh cơ chế bệnh sinh, cơ chế khởi từ nguyên nhân tác động lên tạng phủ, kinh lạc và khí huyết, mà toàn bộ những thứ ấy được mô tả bằng ngôn ngữ âm dương và ngũ hành. <strong>Không có bài nào đứng một mình trong khối này.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHỖ DỄ NHẦM ══ -->
+<section class="sec" id="denham">
+  <div class="wrap">
+    <div class="sec-top">
+      <span class="sec-no">Phụ lục A</span>
+      <h2>Những cặp dễ nhầm nhất</h2>
+      <p class="sec-sub">Nhầm ở đây mất điểm là còn may — trên lâm sàng là điều trị ngược. Học cột <strong>khoá phân biệt</strong>: đó là dấu hiệu duy nhất cần hỏi khi phân vân.</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Cặp</th><th>Vế A</th><th>Vế B</th><th>Khoá phân biệt</th></tr></thead>
+        <tbody>
+          <tr><th>Thực hàn<br>Hư hàn</th><td>Hàn tà từ ngoài vào. Khởi cấp, đau dữ, cự án, mạch khẩn hữu lực, thể trạng còn tốt</td><td>Dương khí thiếu. Khởi từ từ, đau âm ỉ, thích xoa và chườm ấm, mạch trầm trì vô lực, kèm mệt mỏi</td><td><strong>Sức của mạch và của người.</strong> Hữu lực thì tả bằng ôn tán hàn; vô lực thì bổ bằng ôn dương</td></tr>
+          <tr><th>Thực nhiệt<br>Âm hư nội nhiệt</th><td>Sốt cao liên tục cả ngày, mặt đỏ toàn bộ, khát uống lạnh nhiều, mạch hồng sác hữu lực, lưỡi đỏ rêu vàng khô</td><td>Nóng về chiều tối, gò má đỏ từng mảng, nóng lòng bàn tay chân, mồ hôi trộm, mạch tế sác, lưỡi đỏ <em>ít hoặc không rêu</em></td><td><strong>Nhịp theo giờ cộng với rêu lưỡi.</strong> Nóng cả ngày và rêu dày thì tả hoả; nóng về chiều đêm và ít rêu thì tư âm. Tả hoả trên nền âm hư làm âm kiệt thêm</td></tr>
+          <tr><th>Khí hư<br>Khí trệ</th><td>Mệt, đoản hơi, đau âm ỉ, <em>thích xoa ấn</em>, nghỉ thì đỡ, vận động thì tăng</td><td>Trướng nhiều hơn đau, đau <em>di chuyển</em>, <em>cự án</em>, ợ hơi hoặc trung tiện thì nhẹ đi, tình chí chi phối rõ</td><td><strong>Phản ứng khi ấn và khi vận động.</strong> Thích ấn và nghỉ đỡ thì bổ khí; cự án và ợ hơi đỡ thì hành khí. Bổ nhầm cho khí trệ làm trướng nặng thêm</td></tr>
+          <tr><th>Huyết hư<br>Huyết ứ</th><td>Sắc mặt, môi và lưỡi nhợt, chóng mặt hoa mắt, tê bì, mạch tế</td><td>Đau như kim châm, <em>cố định một chỗ</em>, đau tăng về đêm, có khối, lưỡi tím hoặc có điểm ứ</td><td><strong>Tính chất đau và màu lưỡi.</strong> Nhợt kèm tê thì bổ huyết; tím kèm đau cố định thì hoạt huyết hoá ứ</td></tr>
+          <tr><th>Tỳ khí hư<br>Tỳ dương hư</th><td>Mệt, chán ăn, đầy bụng sau ăn, phân nát; không có dấu hiệu lạnh</td><td>Toàn bộ dấu hiệu trên <em>cộng thêm</em> sợ lạnh, bụng lạnh đau thích chườm ấm, phân sống</td><td><strong>Có dấu hàn hay không.</strong> Dương hư bằng khí hư cộng hàn — quan hệ bao hàm chứ không song song</td></tr>
+          <tr><th>Can khí uất<br>Can hoả<br>Can dương thượng cang</th><td><strong>Khí uất</strong> — tức sườn, thở dài, hay bực, mạch huyền; chưa có dấu nhiệt</td><td><strong>Can hoả</strong> — mắt đỏ, đau đầu căng, miệng đắng, cáu dữ dội, táo, mạch huyền sác; là thực chứng.<br><strong>Dương cang</strong> — đau đầu chóng mặt ù tai, mặt bừng, <em>kèm lưng gối mỏi và dấu âm hư ở dưới</em>; là trên thực dưới hư</td><td><strong>Có gốc âm hư ở dưới hay không.</strong> Có thì bình Can tiềm dương kèm tư âm; không thì thanh Can tả hoả thẳng</td></tr>
+          <tr><th>Ngoại tà<br>Nội sinh</th><td>Phong, hàn, thấp, táo, hoả <em>từ ngoài vào</em>. Thường có biểu chứng ở giai đoạn đầu, khởi bệnh có mốc thời gian rõ</td><td>Nội phong, nội hàn, nội thấp, nội táo, nội hoả <em>sinh từ tạng phủ</em>. Không qua biểu, thường kèm dấu hư của tạng tương ứng, diễn tiến từ từ</td><td><strong>Có giai đoạn biểu chứng hay không.</strong> Ngoại tà thì khu trừ; nội sinh thì điều tạng. Đây là cặp nhầm dẫn tới sai hướng nặng nhất</td></tr>
+          <tr><th>Tương khắc<br>Tương thừa</th><td>Quan hệ <em>sinh lý</em> bình thường, giữ cho không hành nào vượt trội</td><td>Khắc <em>quá mức</em>, đã thành bệnh lý, cùng chiều với tương khắc</td><td><strong>Bình thường hay bệnh lý.</strong> Cùng chiều là thừa, ngược chiều là vũ</td></tr>
+          <tr><th>Chân hàn giả nhiệt<br>Thực nhiệt</th><td><strong>Chân hàn giả nhiệt</strong> — mặt đỏ nhợt từng mảng, thân nóng mà vẫn muốn đắp chăn, khát mà uống được ít hoặc thích nóng, mạch to nhưng ấn xuống trống</td><td><strong>Thực nhiệt</strong> — đỏ đều, sợ nóng thật, khát uống lạnh nhiều, mạch ấn xuống vẫn có lực</td><td><strong>Ấn sâu mạch còn lực không, và người bệnh thật sự muốn nóng hay lạnh.</strong> Đây là cặp nhầm gây hậu quả nhanh nhất</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rf">
+      <b>Nguyên tắc bao trùm</b>
+      Phân biệt được chứng không có nghĩa đã loại trừ được nguyên nhân nguy hiểm. Mọi cặp ở trên đều có thể là lớp biểu hiện bề mặt của một bệnh thực thể cần chuyển tuyến. <strong>Biện chứng chính xác trên nền chẩn đoán sai vẫn là điều trị sai.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="ft" id="doichieu">
+  <div class="wrap">
+    <h3 style="margin-top:0">Nhãn độ tin cậy dùng trong trang này</h3>
+    <div class="lg">
+      <div><span class="bg-tag t-nen">Nền tảng</span><p>Lý luận cơ bản ổn định, thống nhất giữa các nguồn. Dùng được ngay.</p></div>
+      <div><span class="bg-tag t-doi">Đối chiếu</span><p>Cách phân loại, thứ tự, thuật ngữ có thể khác giữa các trường và giữa YHCT Việt Nam với Trung y. Kiểm lại theo giáo trình đang học.</p></div>
+      <div><span class="bg-tag t-in">Tra bản in</span><p>Liều lượng, thành phần bài thuốc, vị trí giải phẫu huyệt, nguyên văn kinh điển, số liệu. Tuyệt đối không dùng khi chưa kiểm chứng.</p></div>
+      <div><span class="bg-tag t-vuot">Vượt chương trình</span><p>Nội dung đưa sớm để nối mạch, chưa phải phần phải thi ở năm nhất.</p></div>
+    </div>
+
+    <h3>Việc cần làm khi đối chiếu giáo trình</h3>
+    <ul class="chk">
+      <li>Bảng quy loại ngũ hành — kiểm hàng ngũ dịch, ngũ hoa, và cách xếp mùa trưởng hạ</li>
+      <li>Số lượng và tên gọi các pháp trị theo ngũ hành — giáo trình Việt Nam thường trình bày gọn hơn tài liệu Trung y</li>
+      <li>Thứ tự cặp chế ước trong ứng dụng tình chí tương thắng</li>
+      <li>Nguyên văn hai câu về pháp trị âm hư và dương hư — chép theo bản in, không dùng bản diễn giải ở đây</li>
+      <li>Nguyên văn câu về tà thịnh thành thực và tinh khí đoạt thành hư</li>
+      <li>Nguyên văn các câu về ảnh hưởng của thất tình lên khí cơ</li>
+      <li>Quan niệm về hình thái Tam tiêu theo giáo trình đang học</li>
+      <li>Thứ tự trình bày năm tạng — có sách theo ngũ hành, có sách đặt Tâm trước</li>
+      <li>Bảng hai mươi tám mạch và cách phân bổ tạng phủ vào ba bộ thốn quan xích</li>
+      <li>Bốn dạng phản trị và ví dụ tương ứng</li>
+      <li>Mọi vị thuốc được nhắc — đối chiếu tên khoa học và liều với Dược điển Việt Nam</li>
+      <li>Mọi huyệt được nhắc — đối chiếu vị trí, cách châm và chống chỉ định với giáo trình Châm cứu và văn bản quy định danh mục kỹ thuật</li>
+      <li>Học phần nào chứa Tứ chẩn và Bát cương trong chương trình của trường</li>
+    </ul>
+
+    <p class="fine">Tài liệu học tập, soạn để hệ thống hoá kiến thức, chưa đối chiếu giáo trình. Không phải tài liệu hướng dẫn điều trị. Chẩn đoán và kê đơn thuộc thẩm quyền của người có chứng chỉ hành nghề khám trực tiếp.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== NGŨ HÀNH ===== */
+const PH={
+ moc:{t:"Mộc",c:"#4E8C5E",tang:"Can",phu:"Đởm",khieu:"Mắt",the:"Cân",chi:"Giận",sac:"Xanh",vi:"Chua",mua:"Xuân",
+   dt:"Đặc tính: vươn ra và mọc lên — ưa điều đạt, ghét bị đè nén.",
+   lam:"Can chủ sơ tiết nên ghét uất. Người hay bực dọc, tức sườn, thở dài, kinh nguyệt thất thường — nghĩ Can khí uất trước tiên."},
+ hoa:{t:"Hoả",c:"#C0473C",tang:"Tâm",phu:"Tiểu trường",khieu:"Lưỡi",the:"Mạch",chi:"Mừng",sac:"Đỏ",vi:"Đắng",mua:"Hạ",
+   dt:"Đặc tính: nóng, bốc lên, sáng.",
+   lam:"Tâm hoả bốc lên thì loét miệng lưỡi; truyền xuống phủ tương biểu lý là Tiểu trường thì tiểu đỏ, rít, buốt. Một gốc, hai biểu hiện."},
+ tho:{t:"Thổ",c:"#BE8A2A",tang:"Tỳ",phu:"Vị",khieu:"Miệng",the:"Cơ nhục",chi:"Lo nghĩ",sac:"Vàng",vi:"Ngọt",mua:"Trưởng hạ",
+   dt:"Đặc tính: gieo trồng và thu hoạch — sinh hoá, nuôi dưỡng, chuyên chở.",
+   lam:"Thổ ở trung ương, là gốc hậu thiên. Bệnh lâu ngày ở tạng nào cũng phải xét tới Tỳ — không kiện được Tỳ thì thuốc bổ cũng không hấp thu được."},
+ kim:{t:"Kim",c:"#7E8E96",tang:"Phế",phu:"Đại trường",khieu:"Mũi",the:"Bì mao",chi:"Buồn",sac:"Trắng",vi:"Cay",mua:"Thu",
+   dt:"Đặc tính: trong sạch, thu liễm, đi xuống, biến đổi.",
+   lam:"Phế hợp bì mao và ở vị trí cao nhất nên ngoại tà phạm trước. Phế khí không giáng thì Đại trường không thông — táo bón do Phế là chỗ dễ bỏ sót."},
+ thuy:{t:"Thuỷ",c:"#3D6E9E",tang:"Thận",phu:"Bàng quang",khieu:"Tai và nhị âm",the:"Cốt và tuỷ",chi:"Sợ",sac:"Đen",vi:"Mặn",mua:"Đông",
+   dt:"Đặc tính: thấm xuống, làm ẩm, tàng trữ, lạnh.",
+   lam:"Thận là gốc tiên thiên, chứa nguyên âm nguyên dương. Bệnh mạn tính ở giai đoạn muộn của bất kỳ tạng nào cũng thường quy về Thận."}
+};
+const ORD=["hoa","tho","kim","thuy","moc"];
+const SINH=[["hoa","tho"],["tho","kim"],["kim","thuy"],["thuy","moc"],["moc","hoa"]];
+const KHAC=[["moc","tho"],["tho","thuy"],["thuy","hoa"],["hoa","kim"],["kim","moc"]];
+const CX=250,CY=250,R=168,NR=41,NS="http://www.w3.org/2000/svg";
+const pos={};ORD.forEach((k,i)=>{const a=(-90+i*72)*Math.PI/180;pos[k]={x:CX+R*Math.cos(a),y:CY+R*Math.sin(a)}});
+const eg=document.getElementById("edges"),ng=document.getElementById("nodes");
+
+function edge(a,b,col,dash,rev){
+  const p=pos[a],q=pos[b],dx=q.x-p.x,dy=q.y-p.y,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,o=NR+9;
+  const s={x1:p.x+ux*o,y1:p.y+uy*o,x2:q.x-ux*o,y2:q.y-uy*o};
+  const l=document.createElementNS(NS,"line");
+  const A=rev?[s.x2,s.y2]:[s.x1,s.y1],B=rev?[s.x1,s.y1]:[s.x2,s.y2];
+  l.setAttribute("x1",A[0]);l.setAttribute("y1",A[1]);l.setAttribute("x2",B[0]);l.setAttribute("y2",B[1]);
+  l.setAttribute("stroke",col);l.setAttribute("stroke-width",2);l.setAttribute("stroke-linecap","round");
+  if(dash)l.setAttribute("stroke-dasharray","7 6");
+  l.setAttribute("marker-end","url(#ar)");l.style.color=col;eg.appendChild(l);
+}
+const NOTES={
+ sinh:"<b>Tương sinh.</b> Hành trước nuôi dưỡng và thúc đẩy hành sau, đi vòng theo chiều kim đồng hồ. Hành sinh ra gọi là mẹ, hành được sinh gọi là con. Từ đây ra pháp: hư thì bổ mẹ, thực thì tả con.",
+ khac:"<b>Tương khắc.</b> Hành này kiềm chế hành kia theo hình ngôi sao bên trong, cách một hành. Đây là quan hệ <strong>sinh lý bình thường</strong> giữ cho không hành nào vượt trội. Không có khắc thì mất cân bằng.",
+ thua:"<b>Tương thừa.</b> Khắc quá mức, cùng chiều với tương khắc, đã là bệnh lý. Hai nguyên nhân: bên khắc quá mạnh, hoặc bên bị khắc quá yếu. Ví dụ điển hình là Can khí vượng thừa Tỳ — cứ căng thẳng là đau bụng đi ngoài.",
+ vu:"<b>Tương vũ.</b> Bên bị khắc quá mạnh nên quay lại lấn bên vốn khắc mình, đi ngược chiều tương khắc. Ví dụ: Can hoả quá thịnh vũ ngược lên Phế — giận dữ thì ho, tức sườn, có thể khạc ra máu."
+};
+function render(m){
+  eg.innerHTML="";
+  if(m==="sinh"){SINH.forEach(([a,b])=>edge(a,b,"#4E8C5E",0,0));}
+  else if(m==="khac"){SINH.forEach(([a,b])=>edge(a,b,"#CBD6CA",0,0));KHAC.forEach(([a,b])=>edge(a,b,"#7B8C8E",1,0));}
+  else if(m==="thua"){SINH.forEach(([a,b])=>edge(a,b,"#DFE6DE",0,0));KHAC.forEach(([a,b])=>edge(a,b,"#C0473C",0,0));}
+  else{SINH.forEach(([a,b])=>edge(a,b,"#DFE6DE",0,0));KHAC.forEach(([a,b])=>edge(a,b,"#BE8A2A",0,1));}
+  document.getElementById("modeNote").innerHTML=NOTES[m];
+}
+ORD.forEach(k=>{
+  const p=pos[k],d=PH[k];
+  const g=document.createElementNS(NS,"g");
+  g.setAttribute("class","nd");g.setAttribute("tabindex","0");g.setAttribute("role","button");
+  g.setAttribute("aria-label",d.t+" — tạng "+d.tang);
+  const c=document.createElementNS(NS,"circle");
+  c.setAttribute("cx",p.x);c.setAttribute("cy",p.y);c.setAttribute("r",NR);
+  c.setAttribute("fill","#FFFFFF");c.setAttribute("stroke",d.c);c.setAttribute("stroke-width",2);
+  const t1=document.createElementNS(NS,"text");
+  t1.setAttribute("x",p.x);t1.setAttribute("y",p.y-4);t1.setAttribute("text-anchor","middle");
+  t1.setAttribute("fill",d.c);t1.setAttribute("font-family","Faustina,serif");
+  t1.setAttribute("font-size","19");t1.setAttribute("font-weight","600");t1.textContent=d.t;
+  const t2=document.createElementNS(NS,"text");
+  t2.setAttribute("x",p.x);t2.setAttribute("y",p.y+15);t2.setAttribute("text-anchor","middle");
+  t2.setAttribute("fill","#7B8C8E");t2.setAttribute("font-family","Be Vietnam Pro,sans-serif");
+  t2.setAttribute("font-size","12");t2.textContent=d.tang;
+  g.append(c,t1,t2);
+  g.addEventListener("click",()=>sel(k));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();sel(k);}});
+  ng.appendChild(g);
+});
+function sel(k){
+  const d=PH[k],i=ORD.indexOf(k);
+  const me=ORD[(i+4)%5],con=ORD[(i+1)%5];
+  const kh=KHAC.find(e=>e[0]===k)[1],bk=KHAC.find(e=>e[1]===k)[0];
+  ng.querySelectorAll("circle").forEach((c,x)=>{
+    c.setAttribute("stroke-width",ORD[x]===k?4:2);
+    c.setAttribute("fill",ORD[x]===k?"#F7F9F6":"#FFFFFF");
+  });
+  document.getElementById("detail").innerHTML=`
+  <div class="dtl-h">
+    <div class="dot" style="background:${d.c}">${d.t}</div>
+    <div><h3 style="color:${d.c}">${d.t} — ${d.tang}</h3>
+    <div class="sm">${d.mua} · sắc ${d.sac.toLowerCase()} · vị ${d.vi.toLowerCase()}</div></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:15px">${d.dt}</p>
+  <dl class="kv">
+    <dt>Phủ</dt><dd><strong>${d.phu}</strong> — quan hệ biểu lý</dd>
+    <dt>Khai khiếu</dt><dd>${d.khieu}</dd>
+    <dt>Chủ thể</dt><dd>${d.the}</dd>
+    <dt>Ngũ chí</dt><dd>${d.chi}</dd>
+  </dl>
+  <div class="rl">
+    <div><span class="tg">MẸ</span><span>${PH[me].t} — ${PH[me].tang} — sinh ra ${d.t}, nên ${d.tang} hư thì bổ ${PH[me].tang}</span></div>
+    <div><span class="tg">CON</span><span>${d.t} sinh ra ${PH[con].t} — ${PH[con].tang} — nên ${d.tang} thực thì tả ${PH[con].tang}</span></div>
+    <div><span class="tg">KHẮC</span><span>${d.tang} khắc ${PH[kh].tang}; quá mức thì gọi là ${d.tang} thừa ${PH[kh].tang}</span></div>
+    <div><span class="tg">BỊ KHẮC</span><span>${PH[bk].tang} khắc ${d.tang}; nếu ${d.tang} quá vượng thì vũ ngược lại ${PH[bk].tang}</span></div>
+  </div>
+  <div class="clin"><strong>Ghi nhớ lâm sàng.</strong> ${d.lam}</div>`;
+}
+render("sinh");sel("moc");
+document.querySelectorAll(".modes button").forEach(b=>{
+  b.addEventListener("click",()=>{
+    document.querySelectorAll(".modes button").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true");render(b.dataset.mode);
+  });
+});
+
+/* ===== VÒNG LƯU CHÚ ===== */
+const MER=[
+ ["Phế","3–5",0],["Đại trường","5–7",1],["Vị","7–9",1],["Tỳ","9–11",0],
+ ["Tâm","11–13",0],["Tiểu trường","13–15",1],["Bàng quang","15–17",1],["Thận","17–19",0],
+ ["Tâm bào","19–21",0],["Tam tiêu","21–23",1],["Đởm","23–1",1],["Can","1–3",0]
+];
+(function(){
+ const s=document.getElementById("clock");if(!s)return;
+ const cx=280,cy=280,rO=245,rI=150;
+ const AM="#3D6E9E",DUONG="#BE8A2A";
+ function pt(r,deg){const a=(deg-90)*Math.PI/180;return[cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+ // vành nền
+ MER.forEach((m,i)=>{
+   const a0=i*30, a1=a0+30;
+   const [x0,y0]=pt(rO,a0),[x1,y1]=pt(rO,a1),[x2,y2]=pt(rI,a1),[x3,y3]=pt(rI,a0);
+   const p=document.createElementNS(NS,"path");
+   p.setAttribute("d",`M${x0},${y0} A${rO},${rO} 0 0 1 ${x1},${y1} L${x2},${y2} A${rI},${rI} 0 0 0 ${x3},${y3} Z`);
+   p.setAttribute("fill",m[2]?"#FBF4E4":"#EBF3F9");
+   p.setAttribute("stroke","#FFFFFF");p.setAttribute("stroke-width",2);
+   s.appendChild(p);
+ });
+ // nhãn
+ MER.forEach((m,i)=>{
+   const mid=i*30+15;
+   const [nx,ny]=pt((rO+rI)/2+22,mid);
+   const [hx,hy]=pt((rO+rI)/2-24,mid);
+   const t=document.createElementNS(NS,"text");
+   t.setAttribute("x",nx);t.setAttribute("y",ny);t.setAttribute("text-anchor","middle");
+   t.setAttribute("dominant-baseline","middle");
+   t.setAttribute("fill",m[2]?"#8A6314":"#2F5D86");
+   t.setAttribute("font-family","Be Vietnam Pro,sans-serif");t.setAttribute("font-size","13.5");
+   t.setAttribute("font-weight","600");t.textContent=m[0];
+   const h=document.createElementNS(NS,"text");
+   h.setAttribute("x",hx);h.setAttribute("y",hy);h.setAttribute("text-anchor","middle");
+   h.setAttribute("dominant-baseline","middle");h.setAttribute("fill","#7B8C8E");
+   h.setAttribute("font-family","Roboto Mono,monospace");h.setAttribute("font-size","10.5");
+   h.textContent=m[1]+"h";
+   s.append(t,h);
+ });
+ // vòng trong
+ const ci=document.createElementNS(NS,"circle");
+ ci.setAttribute("cx",cx);ci.setAttribute("cy",cy);ci.setAttribute("r",rI-10);
+ ci.setAttribute("fill","#FFFFFF");ci.setAttribute("stroke","#DDE4DC");ci.setAttribute("stroke-width",1.5);
+ s.appendChild(ci);
+ const lines=[["Vòng lưu chú",20,"#1C2A2B","Faustina,serif","600",-16],
+              ["mười hai kinh trong một ngày đêm",12.5,"#7B8C8E","Be Vietnam Pro,sans-serif","400",8],
+              ["theo chiều kim đồng hồ",11.5,"#1D6B5A","Roboto Mono,monospace","400",30]];
+ lines.forEach(([txt,fs,fill,ff,fw,dy])=>{
+   const t=document.createElementNS(NS,"text");
+   t.setAttribute("x",cx);t.setAttribute("y",cy+dy);t.setAttribute("text-anchor","middle");
+   t.setAttribute("dominant-baseline","middle");t.setAttribute("fill",fill);
+   t.setAttribute("font-family",ff);t.setAttribute("font-size",fs);t.setAttribute("font-weight",fw);
+   t.textContent=txt;s.appendChild(t);
+ });
+ // mũi tên chiều đi
+ const arc=document.createElementNS(NS,"path");
+ const [ax,ay]=pt(rO+14,6),[bx,by]=pt(rO+14,50);
+ arc.setAttribute("d",`M${ax},${ay} A${rO+14},${rO+14} 0 0 1 ${bx},${by}`);
+ arc.setAttribute("fill","none");arc.setAttribute("stroke","#1D6B5A");arc.setAttribute("stroke-width",1.8);
+ arc.setAttribute("marker-end","url(#ar2)");
+ const dfs=document.createElementNS(NS,"defs");
+ dfs.innerHTML='<marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1D6B5A"/></marker>';
+ s.append(dfs,arc);
+})();
+</script>
+</body>
+</html>
